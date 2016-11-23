@@ -21,10 +21,10 @@ public class projectile : MonoBehaviour {
 		//Debug.Log (coll.gameObject.transform.parent.name);
 
 		Rigidbody2D rbTouche = coll.gameObject.GetComponent <Rigidbody2D>();
-		if (coll.gameObject.transform.parent.name == "mesEnnemis") {
-			rbTouche.SendMessageUpwards ("Toucher", 1, SendMessageOptions.RequireReceiver);
-
-
+		if (coll.gameObject.transform.parent) {
+			if (coll.gameObject.transform.parent.name == "mesEnnemis") {
+				rbTouche.SendMessageUpwards ("Toucher", 1, SendMessageOptions.RequireReceiver);
+			}
 		}
 	}
 }
