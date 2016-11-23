@@ -15,7 +15,7 @@ public class scriptSalle : MonoBehaviour {
 	public Transform _mesPortes;
 	public Transform pointRamassageBonus;
 	public int _nbitem;
-	public int _ennemiMax=5;
+	public int _ennemiMax=3;
 	// Use this for initialization
 	void Start () {
 		_nbitem = 0;
