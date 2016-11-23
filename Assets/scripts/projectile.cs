@@ -17,14 +17,14 @@ public class projectile : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D (Collision2D coll){
-
-		//Debug.Log (coll.gameObject.name);
 		GameObject.Destroy (this.gameObject);
+		//Debug.Log (coll.gameObject.transform.parent.name);
+
 		Rigidbody2D rbTouche = coll.gameObject.GetComponent <Rigidbody2D>();
-		if (coll.gameObject.name == "ennemi") {
-			rbTouche.SendMessageUpwards ("Toucher", 1, SendMessageOptions.RequireReceiver);
-
-
+		if (coll.gameObject.transform.parent) {
+			if (coll.gameObject.transform.parent.name == "mesEnnemis") {
+				rbTouche.SendMessageUpwards ("Toucher", 1, SendMessageOptions.RequireReceiver);
+			}
 		}
 	}
 }

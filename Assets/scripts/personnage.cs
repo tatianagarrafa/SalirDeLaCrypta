@@ -41,7 +41,7 @@ public class personnage : MonoBehaviour {
 			Debug.Log ("BOOM");
 			txtnbBombe.text = nbBombe.ToString();
 
-			GameObject.Destroy (bombeExplose,1);
+			//GameObject.Destroy (bombeExplose);
 
 		}
 
