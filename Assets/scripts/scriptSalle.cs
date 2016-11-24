@@ -65,6 +65,9 @@ public class scriptSalle : MonoBehaviour {
 	void GenererItems() {
 		int nbaleatoire=Random.Range(0, items.Length);
 		Transform bonusItem = GameObject.Instantiate (items [nbaleatoire], pointRamassageBonus.position, Quaternion.identity) as Transform;
+		if(bonusItem.name=="AucunItem(Clone)"){
+			Destroy (bonusItem.gameObject);
+		}
 
 	}
 	// fonction va generer aléatoirement les ennemis de la salles 
@@ -73,7 +76,10 @@ public class scriptSalle : MonoBehaviour {
 			Vector3 nouvellePosition = new Vector3(Random.Range(-6.0f, 6.0f), Random.Range(-4f, 3.0f),0f);
 			int nbaleatoire=Random.Range(0, typeEnnemis.Length);
 			Transform nouvelEnnemi = GameObject.Instantiate (typeEnnemis [nbaleatoire], nouvellePosition, Quaternion.identity) as Transform;
-			Debug.Log ("enmmiCree: " + nouvelEnnemi + " " + i);	
+			if(nouvelEnnemi.name=="AucunItem(Clone)"){
+				Destroy (nouvelEnnemi.gameObject);
+			}
+			//Debug.Log ("enmmiCree: " + nouvelEnnemi + " " + i);	
 			nouvelEnnemi.parent = mesEnnemis;
 		}	
 	}
