@@ -37,13 +37,13 @@ public class scriptSalle : MonoBehaviour {
 		_nbEnnemis = mesEnnemis.childCount;
 
 		if (PersoDetecte==true) {
-
+			GenererEnnemis ();
 			for (int i = 0; i < _nbPortes; i++) {
 				Transform porte = _mesPortes.GetChild(i);
 				_mesPortes.GetChild(i).GetComponent<SpriteRenderer> ().sprite = spritePorteFerme;
 				_mesPortes.GetChild(i).GetComponent<BoxCollider2D> ().enabled = true;
 			}
-			GenererEnnemis ();
+		
 			PersoDetecte = false;
 		}
 
@@ -74,7 +74,9 @@ public class scriptSalle : MonoBehaviour {
 	void GenererEnnemis(){
 		for(int i=0 ; i<_ennemiMax; i++){
 			Vector3 nouvellePosition = new Vector3(Random.Range(-6.0f, 6.0f), Random.Range(-4f, 3.0f),0f);
-			int nbaleatoire=Random.Range(0, typeEnnemis.Length);
+			int nbaleatoire=Random.Range(0, typeEnnemis.Length-1);
+			Debug.Log (nbaleatoire);
+			Debug.Log (typeEnnemis.Length);
 			Transform nouvelEnnemi = GameObject.Instantiate (typeEnnemis [nbaleatoire], nouvellePosition, Quaternion.identity) as Transform;
 			if(nouvelEnnemi.name=="AucunItem(Clone)"){
 				Destroy (nouvelEnnemi.gameObject);
