@@ -3,35 +3,21 @@ using System.Collections;
 
 public class projectileMiniBoss : MonoBehaviour {
 
-	public GameObject Player;
+	void OnTriggerEnter2D (Collider2D coll){
 
-	void Start () {
-		//GetComponent<BoxCollider2D>;
-
-
-	}
-
-	// Update is called once per frame
-	void Update () {
-
-	}
-
-
-
-
-
-	void OnCollisionEnter2D (Collision2D coll){
-
+		Debug.Log(coll.gameObject.name);
 		GameObject.Destroy (this.gameObject);
 
-
-
-		Rigidbody2D rbToucheHeros = coll.gameObject.GetComponent <Rigidbody2D>();
 		if (coll.gameObject.name == "Perso") {
-			rbToucheHeros.SendMessageUpwards ("ToucherHeros", 1, SendMessageOptions.RequireReceiver);
+			Rigidbody2D rbToucheHeros = coll.gameObject.GetComponent <Rigidbody2D>();
+			Debug.Log("toucher");
+			rbToucheHeros.SendMessageUpwards ("Toucher", 1, SendMessageOptions.RequireReceiver);
 		}
+		else if(coll.gameObject.name == "patte"){
+			Rigidbody2D rbToucheHeros = coll.gameObject.transform.parent.GetComponent <Rigidbody2D>();
+			Debug.Log("toucher");
+			rbToucheHeros.SendMessageUpwards ("Toucher", 1, SendMessageOptions.RequireReceiver);
 
-
-
+		}
 	}
 }

@@ -71,7 +71,7 @@ public class scriptSalle : MonoBehaviour {
 	void GenererEnnemis(){
 		for(int i=0 ; i<_ennemiMax; i++){
 			Vector3 nouvellePosition = new Vector3(Random.Range(-6.0f, 6.0f), Random.Range(-4f, 3.0f),0f);
-			int nbaleatoire=Random.Range(0, typeEnnemis.Length-1);
+			int nbaleatoire=Random.Range(0, typeEnnemis.Length);
 			Debug.Log (nbaleatoire);
 			Debug.Log (typeEnnemis.Length);
 			Transform nouvelEnnemi = GameObject.Instantiate (typeEnnemis [nbaleatoire], nouvellePosition, Quaternion.identity) as Transform;
