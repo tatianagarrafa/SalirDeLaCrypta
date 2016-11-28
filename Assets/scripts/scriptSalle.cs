@@ -17,6 +17,8 @@ public class scriptSalle : MonoBehaviour {
 	public Transform pointRamassageBonus;
 	public int _nbitem;
 	public int _ennemiMax=5;
+	private float positionX;
+	private float positionY;
 
 	// Use this for initialization
 	void Start () {
@@ -30,6 +32,8 @@ public class scriptSalle : MonoBehaviour {
 		}
 
 		_nbPortes = _mesPortes.childCount;
+		positionX = pointRamassageBonus.position.x;
+		positionY = pointRamassageBonus.position.y;
 	}
 
 	// Update is called once per frame
@@ -71,9 +75,8 @@ public class scriptSalle : MonoBehaviour {
 	// fonction va generer aléatoirement les ennemis de la salles 
 	void GenererEnnemis(){
 		for(int i=0 ; i<_ennemiMax; i++){
-			Vector3 nouvellePosition = new Vector3(Random.Range(-6.0f, 6.0f), Random.Range(-4f, 3.0f),0f);
+			Vector3 nouvellePosition = new Vector3(Random.Range((positionX -6.0f), (positionX + 6.0f)), Random.Range((positionY-4f), (positionY+4.0f)),0f);
 			int nbaleatoire=Random.Range(0, typeEnnemis.Length);
-			Debug.Log (nbaleatoire);
 			Transform nouvelEnnemi = GameObject.Instantiate (typeEnnemis [nbaleatoire], nouvellePosition, Quaternion.identity) as Transform;
 
 			if(nouvelEnnemi.name=="AucunObjet(Clone)"){

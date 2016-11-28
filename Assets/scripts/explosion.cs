@@ -11,6 +11,13 @@ public class explosion : MonoBehaviour {
 		zoneExplosion.enabled = true;
 	
 	}
+	void OnTriggerEnter2D(Collider2D coll) {
+		/*if (coll.gameObject.tag == "Enemy")
+			coll.gameObject.SendMessage("ApplyDamage", 10);
+		IF()
+		*/
+		Debug.Log (coll.gameObject.name);
+	}
 
 	void finAnimation(){
 		GameObject.Destroy (this.gameObject);
