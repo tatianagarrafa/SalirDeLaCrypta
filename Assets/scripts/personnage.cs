@@ -71,7 +71,7 @@ public class personnage : MonoBehaviour {
 
 		if(coll.gameObject.name == "ennemi" ){
 			//this.colli.enabled = false;
-			Debug.Log (nbVie);
+			//Debug.Log (nbVie);
 			nbVie--;
 			if (nbVie <= 0) {
 				//Debug.Log ("mort");

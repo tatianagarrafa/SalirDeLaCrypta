@@ -12,6 +12,10 @@ public class araignee : MonoBehaviour {
 	private float maxY = 2f;
 	private float minY = -2f;
 
+	public Transform PointInstantiation;
+	//private float positionX;
+	//private float positionY;
+
 	private float x;
 	private float y;
 	private float monTemps;
@@ -20,6 +24,13 @@ public class araignee : MonoBehaviour {
 	void Start(){
 		//x = Random.Range (minX, maxX);
 		//y = Random.Range (minY, maxY);
+
+		//les limites du random
+		//maxX = PointInstantiation.position.x + 2f;
+		//minX = PointInstantiation.position.x-2f;
+		//maxY = PointInstantiation.position.y + 2f;
+		//minY = PointInstantiation.position.y-2f;
+
 		x = Random.Range (-maxVitesse, maxVitesse);
 		y = Random.Range (-maxVitesse, maxVitesse);
 		//angle = Mathf.Atan2 (x,y) * Mathf.Rad2Deg;

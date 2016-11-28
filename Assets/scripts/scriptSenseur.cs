@@ -30,6 +30,7 @@ public class scriptSenseur : MonoBehaviour {
 		if(Other.gameObject.name=="Perso"){
 			salleScript.PersoDetecte = true;
 			GameObject.Destroy (this.gameObject);
+			//Debug.Log("Mesure: " + sensTrans.GetComponent <BoxCollider2D>().size.x);
 		}
 			
 	}
