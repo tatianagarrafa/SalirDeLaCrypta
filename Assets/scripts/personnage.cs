@@ -16,57 +16,36 @@ public class personnage : MonoBehaviour {
 	public GameObject bombe;
 	public Transform pointDepotBombe;
 
-
-
-
-
 	// Use this for initialization
 	void Start () {
 		this.rb = GetComponent<Rigidbody2D> ();
 		this.colli = GetComponent<Collider2D> ();
 		txtnbBombe.text = "0";
-	
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
-
 		if(Input.GetKeyDown(KeyCode.E) && nbBombe > 0)	
 		{
-
 			GameObject bombeExplose = Instantiate (bombe,pointDepotBombe.position, transform.localRotation) as GameObject;
-
 			nbBombe--;
 			Debug.Log ("BOOM");
 			txtnbBombe.text = nbBombe.ToString();
-
 			GameObject.Destroy (bombeExplose,1);
-
 		}
-
-
-	
 	}
 
 	void FixedUpdate(){
-		
 		// https://forum.unity3d.com/threads/basic-2d-player-movement.257930/
 		hori = Input.GetAxis ("Horizontal");
 		verti = Input.GetAxis ("Vertical");
 		this.rb.velocity = new Vector2 (hori * vitesse, verti * vitesse);
-	
-
-
 	}
 
 	void OnTriggerEnter2D (Collider2D coll){
-
-
 		if(coll.gameObject.name == "bombe(Clone)" ){
 			nbBombe++;
 			txtnbBombe.text = nbBombe.ToString();
-
 		}
 
 		if(coll.gameObject.name == "ennemi" ){

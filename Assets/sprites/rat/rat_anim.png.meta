@@ -1,9 +1,17 @@
 fileFormatVersion: 2
 guid: 261baf5d61aab3746b401ccfe6cc43a9
-timeCreated: 1479915034
-licenseType: Pro
+timeCreated: 1480197165
+licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: rat_anim_0
+    21300002: rat_anim_1
+    21300004: rat_anim_2
+    21300006: rat_anim_3
+    21300008: rat_anim_4
+    21300010: rat_anim_5
+    21300012: rat_anim_6
+    21300014: rat_anim_7
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -30,7 +38,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -38,7 +46,7 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -51,7 +59,111 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: rat_anim_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1748
+        width: 535
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: rat_anim_1
+      rect:
+        serializedVersion: 2
+        x: 535
+        y: 1748
+        width: 535
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: rat_anim_2
+      rect:
+        serializedVersion: 2
+        x: 1070
+        y: 1748
+        width: 535
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: rat_anim_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1448
+        width: 535
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: rat_anim_4
+      rect:
+        serializedVersion: 2
+        x: 535
+        y: 1448
+        width: 535
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: rat_anim_5
+      rect:
+        serializedVersion: 2
+        x: 1070
+        y: 1448
+        width: 535
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: rat_anim_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1148
+        width: 535
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: rat_anim_7
+      rect:
+        serializedVersion: 2
+        x: 535
+        y: 1148
+        width: 535
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 
