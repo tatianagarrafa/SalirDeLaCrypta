@@ -1,0 +1,29 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\scripts\LancerObjetMiniBoss.cs">
+    <Files>
+      <File FileName="Assets\scripts\DetruireChampApDeplacement.cs" Line="12" Column="3" />
+      <File FileName="Assets\scripts\LancerObjetMiniBoss.cs" Line="23" Column="48" />
+      <File FileName="Assets\scripts\LancerObjetMiniBossD.cs" Line="24" Column="3" />
+      <File FileName="Assets\scripts\LancerObjetMiniBossG.cs" Line="1" Column="1" />
+      <File FileName="Assets\scripts\LancerObjetMiniBossH.cs" Line="1" Column="1" />
+      <File FileName="Assets\scripts\LancerObjetMiniBossHG.cs" Line="1" Column="1" />
+      <File FileName="Assets\scripts\LancerObjetMiniBossMasque.cs" Line="3" Column="1" />
+      <File FileName="Assets\scripts\LancerObjetMiniBossMomie.cs" Line="31" Column="41" />
+      <File FileName="Assets\scripts\MiniBoss.cs" Line="22" Column="2" />
+      <File FileName="Assets\scripts\MouvChampignon.cs" Line="4" Column="46" />
+      <File FileName="Assets\scripts\MouvMasque.cs" Line="26" Column="3" />
+      <File FileName="Assets\scripts\MouvMomie.cs" Line="37" Column="4" />
+      <File FileName="Assets\scripts\ProjectileSuitHeros.cs" Line="29" Column="3" />
+      <File FileName="Assets\scripts\TeleporteMiniBoss.cs" Line="29" Column="1" />
+      <File FileName="Assets\scripts\TriggerHeroMasque.cs" Line="1" Column="1" />
+      <File FileName="Assets\scripts\TriggerHeroMomie.cs" Line="20" Column="46" />
+      <File FileName="Assets\scripts\projectileMiniBoss.cs" Line="1" Column="1" />
+      <File FileName="Assets\scripts\LancerObjet.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
