@@ -37,7 +37,7 @@ public class personnage : MonoBehaviour {
 			Debug.Log ("BOOM");
 			txtnbBombe.text = nbBombe.ToString();
 
-			GameObject.Destroy (bombeExplose,1);
+			//GameObject.Destroy (bombeExplose);
 
 		}
 
@@ -68,7 +68,7 @@ public class personnage : MonoBehaviour {
 
 		if(coll.gameObject.name == "ennemi" || coll.gameObject.tag == "champignon" || coll.gameObject.name == "projectileMiniBoss" ){
 			//this.colli.enabled = false;
-			Debug.Log (nbVie);
+			//Debug.Log (nbVie);
 			nbVie--;
 			if (nbVie <= 0) {
 				//Debug.Log ("mort");
