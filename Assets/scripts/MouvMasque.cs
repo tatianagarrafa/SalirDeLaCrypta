@@ -21,8 +21,8 @@ public class MouvMasque : MonoBehaviour {
 			if(transform.position.x >= 5.5f) 
 			{
 				deplacement = false;
-
 			}
+
 
 			if(transform.position.x <= -5.5f) 
 			{

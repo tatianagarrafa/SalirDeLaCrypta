@@ -16,16 +16,12 @@ public class personnage : MonoBehaviour {
 	public GameObject bombe;
 	public Transform pointDepotBombe;
 
-	//public GameObject PersoInvisible;
-
-
 
 	// Use this for initialization
 	void Start () {
 		this.rb = GetComponent<Rigidbody2D> ();
 		this.colli = GetComponent<Collider2D> ();
-		//txtnbBombe.text = "0";
-	
+		txtnbBombe.text = "0";
 	}
 	
 	// Update is called once per frame
@@ -69,6 +65,7 @@ public class personnage : MonoBehaviour {
 
 		}
 
+
 		if(coll.gameObject.name == "ennemi" || coll.gameObject.tag == "champignon" || coll.gameObject.name == "projectileMiniBoss" ){
 			//this.colli.enabled = false;
 			Debug.Log (nbVie);
@@ -95,35 +92,4 @@ public class personnage : MonoBehaviour {
 
 
 	}
-
-
-	//void rendreInvisiblePerso (){
-
-	//	GameObject trouveEnnemi = GameObject.FindWithTag("champignon");
-		//GameObject trouveEnnemi = GameObject.Find("ennemi");
-	//	if (trouveEnnemi == null) {
-
-			//GameObject HabiliteTransfert = Instantiate (TransfertProj,pointLancement.position, quat) as GameObject;
-	//		Vector3 position = new Vector3(Random.Range(0.0f, 0.0f), 3, Random.Range(0.0f, 0.0f));
-	//		Instantiate(PersoInvisible, position, Quaternion.identity);
-	//		Invoke ("attendreTroisSecondes",10);
-
-	//	}
-
-	//}
-
-
-
-	//void attendreTroisSecondes() {
-
-		//yield return new WaitForSeconds(5);
-		//Destroy (TransfertProj);
-		//PersoInvisible.SetActive (false);
-		//yield return 0;
-		//Debug.Log("Projectile 3 seconds");
-
-	//}
-
-
-
 }

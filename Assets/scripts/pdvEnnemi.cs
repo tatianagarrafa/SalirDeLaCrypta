@@ -8,7 +8,6 @@ public class pdvEnnemi : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		//vieRestante = 2.0f;
-	
 	}
 	
 	// Update is called once per frame
@@ -31,7 +30,4 @@ public class pdvEnnemi : MonoBehaviour {
 		}
 
 	}
-
-
-
 }

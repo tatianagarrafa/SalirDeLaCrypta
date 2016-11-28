@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class projectileMiniBossMasque : MonoBehaviour {
+
 	public GameObject projectileInstantier;
 	//public Transform pointLancement;
 	//public GameObject Player;
@@ -14,11 +15,6 @@ public class projectileMiniBossMasque : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		//GameObject proj2 = Instantiate (projectileInstantier, pointLancement.position, transform.localRotation) as GameObject;
-		//charge = tempsEntreTir;
-		//Rigidbody2D rbProj2 = proj2.GetComponent<Rigidbody2D> ();
-
-		//rbProj2.velocity = new Vector2 (5,5);
 
 	}
 
@@ -27,6 +23,7 @@ public class projectileMiniBossMasque : MonoBehaviour {
 
 
 	void OnCollisionEnter2D (Collision2D coll){
+
 		if (coll.gameObject.tag == "salleperso") {
 			GameObject.Destroy (this.gameObject);
 
@@ -35,6 +32,7 @@ public class projectileMiniBossMasque : MonoBehaviour {
 		Rigidbody2D rbToucheHeros = coll.gameObject.GetComponent <Rigidbody2D>();
 		if (coll.gameObject.name == "Perso") {
 			rbToucheHeros.SendMessageUpwards ("ToucherHeros", 1, SendMessageOptions.RequireReceiver);
+
 
 
 
@@ -57,12 +55,6 @@ public class projectileMiniBossMasque : MonoBehaviour {
 
 			//rbProj2.velocity = new Vector3 (2,15);
 
-
-
-
 		}
 	}
-
-
-
 }

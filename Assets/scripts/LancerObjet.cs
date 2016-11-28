@@ -11,6 +11,7 @@ public class LancerObjet : MonoBehaviour {
 	private float chargeG =0f;
 	private float chargeB =0f;
 	private float chargeD =0f;
+
 	public GameObject TransfertProj;
 
 	public float tempsTransf = 5f;
@@ -30,8 +31,6 @@ public class LancerObjet : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		
-
 
 		// pour le delai : http://answers.unity3d.com/questions/675839/hold-down-mouse-0-and-every-5-seconds-instantiate.html
 		// pour la rotation du projectile http://answers.unity3d.com/questions/630670/rotate-2d-sprite-towards-moving-direction.html
@@ -92,7 +91,6 @@ public class LancerObjet : MonoBehaviour {
 			lanceProjectile (transform.right , (1 * forceTir), Quaternion.AngleAxis(0, Vector3.forward));
 			chargeD= 0;
 		}
-
 
 
 
@@ -165,5 +163,6 @@ public class LancerObjet : MonoBehaviour {
 	
 
 	}
+
 
 }

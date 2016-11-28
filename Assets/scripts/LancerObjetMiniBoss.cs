@@ -17,7 +17,6 @@ public class LancerObjetMiniBoss : MonoBehaviour {
 	public Transform pointLancement5;
 	public Transform pointLancement6;
 
-
 	public float tempsEntreTir;
 	private float charge;
 
@@ -67,6 +66,7 @@ public class LancerObjetMiniBoss : MonoBehaviour {
 			charge = tempsEntreTir;
 			Rigidbody2D rbProj6 = proj6.GetComponent<Rigidbody2D> ();
 			rbProj6.velocity = new Vector2 (-3,6);
+
 
 
 		}
