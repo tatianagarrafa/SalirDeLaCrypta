@@ -28,7 +28,8 @@ public class scriptSenseur : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D Other)
 	{
 		if(Other.gameObject.name=="Perso"){
-			salleScript.PersoDetecte = true;
+			//salleScript.PersoDetecte = true;
+			salleScript.peutGenerEnnemis = true;
 			GameObject.Destroy (this.gameObject);
 			//Debug.Log("Mesure: " + sensTrans.GetComponent <BoxCollider2D>().size.x);
 		}
