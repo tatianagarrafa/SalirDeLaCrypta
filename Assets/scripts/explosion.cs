@@ -12,6 +12,7 @@ public class explosion : MonoBehaviour {
 		valid = true;
 	}
 
+
 	void finAnimation(){
 		GameObject.Destroy (this.gameObject);
 	}

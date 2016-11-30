@@ -20,7 +20,7 @@ public class Canvas : MonoBehaviour {
 
 	public void JouerJeu(string maScene){
 		Debug.Log ("Commencer le jeu");
-		SceneManager.LoadScene (maScene);
+		SceneManager.LoadScene ("travailJulien_julien");
 		ecranDemarrage.gameObject.SetActive (false);
 		Time.timeScale = 1;
 	}

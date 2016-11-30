@@ -2,6 +2,9 @@
 using System.Collections;
 using UnityEngine.UI;
 
+// http://answers.unity3d.com/questions/42843/referencing-non-static-variables-from-another-scri.html
+// pour aller chercher la variable d'un script d'un autre gameObject
+
 public class personnage : MonoBehaviour {
 
 	private Rigidbody2D rb;
@@ -12,6 +15,7 @@ public class personnage : MonoBehaviour {
 	public Text txtnbBombe;
 	public Text txtnbVies;
 	private int nbBombe = 0;
+	public float nbVieMax =3;
 	public float nbVie =3;
 	public GameObject bombe;
 	public Transform pointDepotBombe;
@@ -30,9 +34,7 @@ public class personnage : MonoBehaviour {
 		{
 			GameObject bombeExplose = Instantiate (bombe,pointDepotBombe.position, transform.localRotation) as GameObject;
 			nbBombe--;
-			Debug.Log ("BOOM");
 			txtnbBombe.text = nbBombe.ToString();
-			//GameObject.Destroy (bombeExplose);
 		}
 	}
 
@@ -50,9 +52,13 @@ public class personnage : MonoBehaviour {
 			txtnbBombe.text = nbBombe.ToString();
 		}
 
+		if(coll.gameObject.name == "coeur(Clone)" && nbVie < nbVieMax){
+			nbVie++;
+			txtnbVies.text = nbVie.ToString();
+		}
+
 		if(coll.gameObject.transform.parent.name == "mesEnnemis"){
-			//this.colli.enabled = false;
-			Debug.Log (nbVie);
+			//Debug.Log (nbVie);
 			nbVie--;
 			if (nbVie <= 0) {
 				//Debug.Log ("mort");
