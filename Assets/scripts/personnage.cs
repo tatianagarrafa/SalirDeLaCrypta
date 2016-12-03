@@ -34,7 +34,6 @@ public class personnage : MonoBehaviour {
 			GameObject bombeExplose = Instantiate (bombe,pointDepotBombe.position, transform.localRotation) as GameObject;
 
 			nbBombe--;
-			Debug.Log ("BOOM");
 			txtnbBombe.text = nbBombe.ToString();
 
 			//GameObject.Destroy (bombeExplose);

@@ -16,7 +16,6 @@ public class explosion : MonoBehaviour {
 			coll.gameObject.SendMessage("ApplyDamage", 10);
 		IF()
 		*/
-		Debug.Log (coll.gameObject.name);
 	}
 
 	void finAnimation(){
