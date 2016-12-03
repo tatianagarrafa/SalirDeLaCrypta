@@ -22,29 +22,43 @@ public class projectileMiniBossMasque : MonoBehaviour {
 
 
 
-	void OnCollisionEnter2D (Collision2D coll){
+	//void OnCollisionEnter2D (Collision2D coll){
 
-		if (coll.gameObject.tag == "salleperso") {
-			GameObject.Destroy (this.gameObject);
+	//	if (coll.gameObject.tag == "zonemasque") {
+	//		GameObject.Destroy (this.gameObject);
 
-		}
+	//	}
 
-		Rigidbody2D rbToucheHeros = coll.gameObject.GetComponent <Rigidbody2D>();
-		if (coll.gameObject.name == "Perso") {
-			rbToucheHeros.SendMessageUpwards ("ToucherHeros", 1, SendMessageOptions.RequireReceiver);
-
-
+	//	Rigidbody2D rbToucheHeros = coll.gameObject.GetComponent <Rigidbody2D>();
+	//	if (coll.gameObject.name == "Perso") {
+	//		rbToucheHeros.SendMessageUpwards ("ToucherHeros", 1, SendMessageOptions.RequireReceiver);
 
 
-		}
+
+
+	//	}
+
+
+
 
 	
-	}
-	void OnTriggerEnter2D(Collider2D other) {
+	//}
+	void OnTriggerEnter2D(Collider2D Other) {
+		if(Other.gameObject.tag=="zonemasque"){
+			//salleScript.PersoDetecte = true;
+			GameObject.Destroy (this.gameObject);
+			//Rigidbody2D rbToucheHeros = Other.gameObject.GetComponent <Rigidbody2D>();
+			//rbToucheHeros.SendMessageUpwards ("ToucherHeros", 1, SendMessageOptions.RequireReceiver);
+			Debug.Log ("ToucherSalleMasque");
+		}
 
-		if (other.gameObject.name == "instantierProjectile") {
+
+
+
+
+		if (Other.gameObject.name == "instantierProjectile") {
 			
-			Vector3 position = new Vector3(Random.Range(-5.0f, 5.0f), 3, Random.Range(0.0f, 0.0f));
+			Vector3 position = new Vector3(Random.Range(44.80f, 60.0f), 3, Random.Range(0.0f, 0.0f));
 			Instantiate(projectileInstantier, position, Quaternion.identity);
 			//GameObject proj2 = Instantiate<GameObject>(projectileInstantier);
 			//other.GetComponent<Collider2D>().enabled = false;

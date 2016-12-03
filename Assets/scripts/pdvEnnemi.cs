@@ -7,7 +7,7 @@ public class pdvEnnemi : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		//vieRestante = 8.0f;
 	}
 	
 	// Update is called once per frame
@@ -15,7 +15,7 @@ public class pdvEnnemi : MonoBehaviour {
 	
 	}
 
-	void Toucher (float dmg){
+	void ToucherMiniBoss (float dmg){
 		vieRestante -= dmg;
 		if(vieRestante<=0){
 			GameObject.Destroy (this.gameObject);
@@ -23,11 +23,11 @@ public class pdvEnnemi : MonoBehaviour {
 	
 	}
 
-	void ToucherChamp (float dmg){
-		vieRestante -= dmg;
-		if(vieRestante<=0){
-			GameObject.Destroy (this.gameObject);
-		}
+	//void ToucherChamp (float dmg){
+	//	vieRestante -= dmg;
+	//	if(vieRestante<=0){
+	//		GameObject.Destroy (this.gameObject);
+	//	}
 
-	}
+	//}
 }

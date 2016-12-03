@@ -13,18 +13,25 @@ public class LancerObjet : MonoBehaviour {
 	private float chargeD =0f;
 
 	public GameObject TransfertProj;
+	public GameObject TransfertProjMasque;
+	public GameObject TransfertProjChamp;
 
 	public float tempsTransf = 5f;
+	public bool PersoDetecte=false;
 
 	void Start () {
-		GetComponent<SpriteRenderer> ().color = new Color (1, 1, 1, 1f);
+		//GetComponent<SpriteRenderer> ().color = new Color (1, 1, 1, 1f);
 		TransfertProj.SetActive (false);
+		TransfertProjMasque.SetActive (false);
+		//TransfertProjChamp.SetActive (false);
 
+		//TransfertProj.GetComponent<Renderer>().enabled=true;
+		//TransfertProj.GetComponent<Renderer>().enabled=false;
 
 	}
 
 	void FixedUpdate () {
-		PersonnageTransparent ();// Appel de la fanction personnage transparent
+		//PersonnageTransparent ();// Appel de la fanction personnage transparent
 
 
 	}
@@ -97,30 +104,89 @@ public class LancerObjet : MonoBehaviour {
 	}
 
 	void lanceProjectile(Vector2 sens,float force, Quaternion quat){
-		
 
-			GameObject proj = Instantiate (projectile, pointLancement.position, quat) as GameObject;
-			Rigidbody2D rbProj = proj.GetComponent<Rigidbody2D> ();
-			rbProj.AddForce (sens * force);
+		GameObject proj = Instantiate (projectile, pointLancement.position, quat) as GameObject;
+		Rigidbody2D rbProj = proj.GetComponent<Rigidbody2D> ();
+		rbProj.AddForce (sens * force);
 
 
-		GameObject trouveEnnemiM = GameObject.FindWithTag("momie");
+		GameObject trouveHabiliteChamp = GameObject.FindWithTag ("FinishChamp");
 
-		if (trouveEnnemiM == null ) {
+		if (trouveHabiliteChamp != null) {
+			GameObject projTransfert3 = Instantiate (TransfertProjChamp,pointLancement.position, quat) as GameObject;
+			Rigidbody2D rbProjTransfert3 = projTransfert3.GetComponent<Rigidbody2D> ();
+			rbProjTransfert3.AddForce (sens * 0);
+
+			TransfertProjChamp.SetActive (true);
+			//TransfertProj.GetComponent<Renderer>().enabled=true;
+			Invoke ("attendreSecondes",tempsTransf);
+			TransfertProjChamp.GetComponent<Renderer>().enabled=true;
+			Debug.Log("bouclier");
+
+
+		}
+
+
 			
-			GameObject projTransfert = Instantiate (TransfertProj,pointLancement.position, quat) as GameObject;
-			Rigidbody2D rbProjTransfert = projTransfert.GetComponent<Rigidbody2D> ();
-			rbProjTransfert.AddForce (sens * force);
 
-			TransfertProj.SetActive (true);
-			Invoke ("recupererProjectile",tempsTransf);
-			//GetComponent<Renderer>().enabled = false;
-			Debug.Log("boule noire");
+		GameObject trouveEnnemiM = GameObject.FindWithTag ("momie");
+		
+	
+
+			if (trouveEnnemiM == null) {
+			
+				GameObject projTransfert = Instantiate (TransfertProj, pointLancement.position, quat) as GameObject;
+				Rigidbody2D rbProjTransfert = projTransfert.GetComponent<Rigidbody2D> ();
+				rbProjTransfert.AddForce (sens * force);
+
+				TransfertProj.SetActive (true);
+
+				//TransfertProj.GetComponent<Renderer>().enabled=true;
+				Invoke ("recupererProjectile", tempsTransf);
+				//GetComponent<Renderer>().enabled = false;
+				Debug.Log ("boule momie");
 
 			}
 
-
+		
 	}
+
+		/*GameObject trouveEnnemiMasque = GameObject.FindWithTag("masque");
+
+		if (trouveEnnemiMasque == null ) {
+
+			GameObject projTransfert2 = Instantiate (TransfertProjMasque,pointLancement.position, quat) as GameObject;
+			Rigidbody2D rbProjTransfert2 = projTransfert2.GetComponent<Rigidbody2D> ();
+			rbProjTransfert2.AddForce (sens * force);
+
+			TransfertProjMasque.SetActive (true);
+			//TransfertProj.GetComponent<Renderer>().enabled=true;
+			Invoke ("recupererProjectile",tempsTransf);
+			//GetComponent<Renderer>().enabled = false;
+			Debug.Log("boule verte");
+
+		}
+
+
+		GameObject trouveEnnemiChamp= GameObject.FindWithTag("champignon");
+
+		if (trouveEnnemiChamp == null ) {
+
+			GameObject projTransfert3 = Instantiate (TransfertProjChamp,pointLancement.position, quat) as GameObject;
+			Rigidbody2D rbProjTransfert3 = projTransfert3.GetComponent<Rigidbody2D> ();
+			rbProjTransfert3.AddForce (sens * 0);
+
+			TransfertProjChamp.SetActive (true);
+			//TransfertProj.GetComponent<Renderer>().enabled=true;
+			Invoke ("detruireBouclier",tempsTransf);
+			//GetComponent<Renderer>().enabled = false;
+			Debug.Log("bouclier");
+
+		}
+
+
+
+	}*/
 
 
 
@@ -132,37 +198,26 @@ public class LancerObjet : MonoBehaviour {
 		//GetComponent<Renderer>().enabled = true;
 		//TransfertProj.SetActive (false);
 		TransfertProj.GetComponent<Renderer>().enabled=false;
+	//	TransfertProjMasque.GetComponent<Renderer>().enabled=false;
+		//TransfertProjChamp.GetComponent<Renderer>().enabled=false;
 		//Destroy (GameObject.FindWithTag("detruire"));
 
 
 	}
 
-	void PersonnageTransparent(){
-
-		GameObject trouveEnnemiT = GameObject.FindWithTag("taupe"); // Trouve les objets qui ont le tag taupe
-
-		// Si le mini boos Taupe qui a le tag taupe n'existe pas  la tete du personnage devient transparente pour 5 secondes
-		if (trouveEnnemiT == null) {
-
-			GetComponent<SpriteRenderer> ().color = new Color (1, 1, 1, 0.5f);
-			Debug.Log ("Je deviens transparent");
-			//GetComponent<SpriteRenderer>().color = maCouleur;
-			Invoke ("attendreSecondes",5);
-
-		}
-
-
-	}
-
- void attendreSecondes() {
-		
-		//GetComponent<Renderer>().enabled = true;
-		//TransfertProj.SetActive (true);
-		GetComponent<SpriteRenderer> ().color = new Color (1, 1, 1, 1f);
-		Debug.Log("Alpha normal");
 	
 
+
+
+	void attendreSecondes() {
+
+
+
+		TransfertProjChamp.GetComponent<Renderer>().enabled=false;
+		Debug.Log("Bouclierfini");
+
 	}
+
 
 
 }

@@ -59,6 +59,24 @@ public class personnage : MonoBehaviour {
 	void OnTriggerEnter2D (Collider2D coll){
 
 
+		if(coll.gameObject.tag=="projSupMasque" || coll.gameObject.tag=="detruire"){
+			{
+				//GameObject.Destroy (this.gameObject);
+				//Debug.Log (nbVie);
+				nbVie--;
+				if (nbVie <= 0) {
+					Debug.Log ("mort");
+					txtnbVies.text = nbVie.ToString();
+				} else {
+					txtnbVies.text = nbVie.ToString();
+				}
+
+
+			}
+		}
+
+
+
 		if(coll.gameObject.name == "bombe(Clone)" ){
 			nbBombe++;
 			txtnbBombe.text = nbBombe.ToString();
@@ -66,23 +84,25 @@ public class personnage : MonoBehaviour {
 		}
 
 
-		if(coll.gameObject.name == "ennemi" || coll.gameObject.tag == "champignon" || coll.gameObject.name == "projectileMiniBoss" ){
-			//this.colli.enabled = false;
-			//Debug.Log (nbVie);
-			nbVie--;
-			if (nbVie <= 0) {
-				//Debug.Log ("mort");
-				txtnbVies.text = nbVie.ToString();
-			} else {
-				txtnbVies.text = nbVie.ToString();
-			}
-
-		
-
-		}
 
 
 
+		if (coll.gameObject.transform.parent) {
+
+				if (coll.gameObject.transform.parent.name == "mesEnnemis" ) {
+						//GameObject.Destroy (this.gameObject);
+					//Debug.Log (nbVie);
+					nbVie--;
+					if (nbVie <= 0) {
+					Debug.Log ("mort");
+						txtnbVies.text = nbVie.ToString();
+					} else {
+						txtnbVies.text = nbVie.ToString();
+					}
+
+
+					}
+				}
 
 
 	}
@@ -92,4 +112,7 @@ public class personnage : MonoBehaviour {
 
 
 	}
+		
+
+
 }

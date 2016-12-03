@@ -27,4 +27,61 @@ public class ProjectileSuitHeros : MonoBehaviour {
 				return;
 			transform.position = Vector2.MoveTowards(transform.position, playerCible.position, DeplVitesse * Time.deltaTime);
 	}
+
+
+	//void OnCollisionEnter2D (Collision2D coll){
+	//	GameObject.Destroy (this.gameObject);
+	//	Rigidbody2D rbToucheHeros = coll.gameObject.GetComponent <Rigidbody2D>();
+
+			//if (coll.gameObject.name == "Perso") {
+			//	rbToucheHeros.SendMessageUpwards ("ToucherHeros", 1, SendMessageOptions.RequireReceiver);
+			//	Debug.Log ("ToucherHeros");
+
+
+		//}
+	//}
+
+	//void OnCollisionEnter2D (Collision2D coll){
+	//	if (coll.gameObject.tag == "detruire") {
+	//		GetComponent<BoxCollider2D> ().enabled = true;
+
+	//	}
+
+	//	Rigidbody2D rbToucheHeros = coll.gameObject.GetComponent <Rigidbody2D>();
+	//	if (coll.gameObject.name == "Perso") {
+	//		GameObject.Destroy (this.gameObject);
+	//		rbToucheHeros.SendMessageUpwards ("ToucherHeros", 1, SendMessageOptions.RequireReceiver);
+	//		Debug.Log ("ToucherHeros");
+
+
+	//	}
+
+
+
+//	}
+
+	void OnTriggerEnter2D(Collider2D Other)
+	{
+		
+
+			if(Other.gameObject.name=="Perso"){
+			//salleScript.PersoDetecte = true;
+			GameObject.Destroy (this.gameObject);
+			Rigidbody2D rbToucheHeros = Other.gameObject.GetComponent <Rigidbody2D>();
+			rbToucheHeros.SendMessageUpwards ("ToucherHeros", 1, SendMessageOptions.RequireReceiver);
+			Debug.Log ("ToucherHeros");
+		}
+
+	}
+
+	//void OnTriggerEnter(Collider col)
+	//{
+	//	if(col.GetComponent<Collider>().name == "Perso")
+	//	{
+	//		GameObject.Destroy (this.gameObject);
+	//		Debug.Log ("ToucherHeros");
+	//	}
+	//}
+
+
 }

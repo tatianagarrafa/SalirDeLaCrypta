@@ -17,36 +17,36 @@ public class PersonnageInvisible : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-		PersonnageTransparent ();// Appel de la fanction personnage transparent
+		
 
 	}
 
 
-	void PersonnageTransparent(){
+	void OnTriggerEnter2D (Collider2D coll){
 
-		GameObject trouveEnnemi = GameObject.FindWithTag("champignon"); // Trouve les objets qui ont le tag champignon
 
-		// Si le mini boos Taupe qui a le tag champignon n'existe pas le la tete du personnage devient transparente pour 10 secondes
-		if (trouveEnnemi == null) {
+		if(coll.gameObject.tag == "Finish"){
 
 			GetComponent<SpriteRenderer> ().color = new Color (1, 1, 1, 0.5f);
-			Debug.Log ("Je deviens transparent");
-			//GetComponent<SpriteRenderer>().color = maCouleur;
-			Invoke ("attendreSecondes",10);
+			GetComponent<BoxCollider2D> ().enabled = false;
+			Invoke ("attendreSecondes",5);
 
 		}
 
-
 	}
-		
-		// Apres 10 seconds redevient visible
+
+
+
 	void attendreSecondes() {
 
-		//renderer.enabled = false;
+
 
 		GetComponent<SpriteRenderer> ().color = new Color (1, 1, 1, 1f);
+		GetComponent<BoxCollider2D> ().enabled = true;
 		Debug.Log("Alpha normal");
 
 	}
+
+
 
 }
