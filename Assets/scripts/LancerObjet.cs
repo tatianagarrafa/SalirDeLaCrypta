@@ -1,5 +1,6 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class LancerObjet : MonoBehaviour {
 	public GameObject projectile;
@@ -12,29 +13,23 @@ public class LancerObjet : MonoBehaviour {
 	private float chargeB =0f;
 	private float chargeD =0f;
 
-	public GameObject TransfertProj;
+	public GameObject TransfertProjMomie;
+	public GameObject TransfertProjChampignon;
 	public GameObject TransfertProjMasque;
-	public GameObject TransfertProjChamp;
 
 	public float tempsTransf = 5f;
 	public bool PersoDetecte=false;
 
+
+
 	void Start () {
-		//GetComponent<SpriteRenderer> ().color = new Color (1, 1, 1, 1f);
-		TransfertProj.SetActive (false);
-		TransfertProjMasque.SetActive (false);
-		//TransfertProjChamp.SetActive (false);
 
-		//TransfertProj.GetComponent<Renderer>().enabled=true;
-		//TransfertProj.GetComponent<Renderer>().enabled=false;
-
+		TransfertProjMomie.GetComponent<Renderer>().enabled=false;
+		TransfertProjChampignon.GetComponent<Renderer>().enabled=false;
+		TransfertProjMasque.GetComponent<Renderer>().enabled=false;
 	}
 
-	void FixedUpdate () {
-		//PersonnageTransparent ();// Appel de la fanction personnage transparent
 
-
-	}
 
 	// Update is called once per frame
 	void Update () {
@@ -108,116 +103,64 @@ public class LancerObjet : MonoBehaviour {
 		GameObject proj = Instantiate (projectile, pointLancement.position, quat) as GameObject;
 		Rigidbody2D rbProj = proj.GetComponent<Rigidbody2D> ();
 		rbProj.AddForce (sens * force);
-
-
-		GameObject trouveHabiliteChamp = GameObject.FindWithTag ("FinishChamp");
-
-		if (trouveHabiliteChamp != null) {
-			GameObject projTransfert3 = Instantiate (TransfertProjChamp,pointLancement.position, quat) as GameObject;
-			Rigidbody2D rbProjTransfert3 = projTransfert3.GetComponent<Rigidbody2D> ();
-			rbProjTransfert3.AddForce (sens * 0);
-
-			TransfertProjChamp.SetActive (true);
-			//TransfertProj.GetComponent<Renderer>().enabled=true;
-			Invoke ("attendreSecondes",tempsTransf);
-			TransfertProjChamp.GetComponent<Renderer>().enabled=true;
-			Debug.Log("bouclier");
-
-
-		}
-
-
-			
-
-		GameObject trouveEnnemiM = GameObject.FindWithTag ("momie");
-		
 	
-
-			if (trouveEnnemiM == null) {
+		GameObject projTransfertM = Instantiate (TransfertProjMomie, pointLancement.position, quat) as GameObject;
+		Rigidbody2D rbProjTransfertM = projTransfertM.GetComponent<Rigidbody2D> ();
+		rbProjTransfertM.AddForce (sens * force);
 			
-				GameObject projTransfert = Instantiate (TransfertProj, pointLancement.position, quat) as GameObject;
-				Rigidbody2D rbProjTransfert = projTransfert.GetComponent<Rigidbody2D> ();
-				rbProjTransfert.AddForce (sens * force);
+		GameObject projTransfertCh = Instantiate (TransfertProjChampignon, pointLancement.position, quat) as GameObject;
+		Rigidbody2D rbProjTransfertCh = projTransfertCh.GetComponent<Rigidbody2D> ();
+		rbProjTransfertCh.AddForce (sens * 0);
 
-				TransfertProj.SetActive (true);
+		GameObject projTransfertMas = Instantiate (TransfertProjMasque, pointLancement.position, quat) as GameObject;
+		Rigidbody2D rbProjTransfertMas = projTransfertMas.GetComponent<Rigidbody2D> ();
+		rbProjTransfertMas.AddForce (sens * force);
 
-				//TransfertProj.GetComponent<Renderer>().enabled=true;
-				Invoke ("recupererProjectile", tempsTransf);
-				//GetComponent<Renderer>().enabled = false;
-				Debug.Log ("boule momie");
 
-			}
-
-		
 	}
 
-		/*GameObject trouveEnnemiMasque = GameObject.FindWithTag("masque");
+	void OnTriggerEnter2D (Collider2D coll){
 
-		if (trouveEnnemiMasque == null ) {
+		if(coll.gameObject.tag == "Finishmomie"){
+			lanceProjectile (transform.right , (1 * forceTir), Quaternion.AngleAxis(0, Vector3.forward));
 
-			GameObject projTransfert2 = Instantiate (TransfertProjMasque,pointLancement.position, quat) as GameObject;
-			Rigidbody2D rbProjTransfert2 = projTransfert2.GetComponent<Rigidbody2D> ();
-			rbProjTransfert2.AddForce (sens * force);
+			Invoke ("recupererProjectile", tempsTransf);
+			TransfertProjMomie.GetComponent<Renderer>().enabled=true;
 
-			TransfertProjMasque.SetActive (true);
-			//TransfertProj.GetComponent<Renderer>().enabled=true;
-			Invoke ("recupererProjectile",tempsTransf);
-			//GetComponent<Renderer>().enabled = false;
-			Debug.Log("boule verte");
+		}
+
+		if(coll.gameObject.tag == "FinishChamp"){
+			lanceProjectile (transform.right , (1 * forceTir), Quaternion.AngleAxis(0, Vector3.forward));
+
+			Invoke ("recupererProjectile", tempsTransf);
+			TransfertProjChampignon.GetComponent<Renderer>().enabled=true;
+
 
 		}
 
 
-		GameObject trouveEnnemiChamp= GameObject.FindWithTag("champignon");
+		if(coll.gameObject.tag == "FinishMasque"){
+			lanceProjectile (transform.right , (1 * forceTir), Quaternion.AngleAxis(0, Vector3.forward));
 
-		if (trouveEnnemiChamp == null ) {
+			Invoke ("recupererProjectile", tempsTransf);
+			TransfertProjMasque.GetComponent<Renderer>().enabled=true;
 
-			GameObject projTransfert3 = Instantiate (TransfertProjChamp,pointLancement.position, quat) as GameObject;
-			Rigidbody2D rbProjTransfert3 = projTransfert3.GetComponent<Rigidbody2D> ();
-			rbProjTransfert3.AddForce (sens * 0);
-
-			TransfertProjChamp.SetActive (true);
-			//TransfertProj.GetComponent<Renderer>().enabled=true;
-			Invoke ("detruireBouclier",tempsTransf);
-			//GetComponent<Renderer>().enabled = false;
-			Debug.Log("bouclier");
 
 		}
 
-
-
-	}*/
-
-
-
-
-
+	}
+		
 
 	void recupererProjectile() {
 
-		//GetComponent<Renderer>().enabled = true;
-		//TransfertProj.SetActive (false);
-		TransfertProj.GetComponent<Renderer>().enabled=false;
-	//	TransfertProjMasque.GetComponent<Renderer>().enabled=false;
-		//TransfertProjChamp.GetComponent<Renderer>().enabled=false;
-		//Destroy (GameObject.FindWithTag("detruire"));
-
-
+		TransfertProjMomie.GetComponent<Renderer>().enabled=false;
+		TransfertProjChampignon.GetComponent<Renderer>().enabled=false;
+		TransfertProjMasque.GetComponent<Renderer>().enabled=false;
 	}
-
-	
-
-
-
-	void attendreSecondes() {
-
-
-
-		TransfertProjChamp.GetComponent<Renderer>().enabled=false;
-		Debug.Log("Bouclierfini");
-
-	}
-
-
 
 }
+
+
+
+
+

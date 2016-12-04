@@ -29,59 +29,21 @@ public class ProjectileSuitHeros : MonoBehaviour {
 	}
 
 
-	//void OnCollisionEnter2D (Collision2D coll){
-	//	GameObject.Destroy (this.gameObject);
-	//	Rigidbody2D rbToucheHeros = coll.gameObject.GetComponent <Rigidbody2D>();
 
-			//if (coll.gameObject.name == "Perso") {
-			//	rbToucheHeros.SendMessageUpwards ("ToucherHeros", 1, SendMessageOptions.RequireReceiver);
-			//	Debug.Log ("ToucherHeros");
-
-
-		//}
-	//}
-
-	//void OnCollisionEnter2D (Collision2D coll){
-	//	if (coll.gameObject.tag == "detruire") {
-	//		GetComponent<BoxCollider2D> ().enabled = true;
-
-	//	}
-
-	//	Rigidbody2D rbToucheHeros = coll.gameObject.GetComponent <Rigidbody2D>();
-	//	if (coll.gameObject.name == "Perso") {
-	//		GameObject.Destroy (this.gameObject);
-	//		rbToucheHeros.SendMessageUpwards ("ToucherHeros", 1, SendMessageOptions.RequireReceiver);
-	//		Debug.Log ("ToucherHeros");
-
-
-	//	}
-
-
-
-//	}
 
 	void OnTriggerEnter2D(Collider2D Other)
 	{
-		
+		// detruire le projectile de la momie des qu'il touche le heros
 
 			if(Other.gameObject.name=="Perso"){
-			//salleScript.PersoDetecte = true;
+			
 			GameObject.Destroy (this.gameObject);
-			Rigidbody2D rbToucheHeros = Other.gameObject.GetComponent <Rigidbody2D>();
-			rbToucheHeros.SendMessageUpwards ("ToucherHeros", 1, SendMessageOptions.RequireReceiver);
-			Debug.Log ("ToucherHeros");
+			//Rigidbody2D rbToucheHeros = Other.gameObject.GetComponent <Rigidbody2D>();
+			//rbToucheHeros.SendMessageUpwards ("ToucherHeros", 1, SendMessageOptions.RequireReceiver);
+			//Debug.Log ("ToucherHeros");
 		}
 
 	}
-
-	//void OnTriggerEnter(Collider col)
-	//{
-	//	if(col.GetComponent<Collider>().name == "Perso")
-	//	{
-	//		GameObject.Destroy (this.gameObject);
-	//		Debug.Log ("ToucherHeros");
-	//	}
-	//}
 
 
 }

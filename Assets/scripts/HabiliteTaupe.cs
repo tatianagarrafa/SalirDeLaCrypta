@@ -15,7 +15,7 @@ public class HabiliteTaupe : MonoBehaviour {
 
 
 	void FixedUpdate () {
-		//PersonnageTransparent ();// Appel de la fanction personnage transparent
+		
 
 	}
 
@@ -23,13 +23,10 @@ public class HabiliteTaupe : MonoBehaviour {
 
 		//Debug.Log (coll.gameObject.name);
 		if(coll.gameObject.name == "Perso"){
-			
 
-			//GetComponent<SpriteRenderer> ().color = new Color (1, 1, 1, 0.5f);
-			//GetComponent<BoxCollider2D> ().enabled = true;
-
-
-			Invoke ("attendreSecondes",3);
+			Invoke ("attendreSecondes",2); // comme il y a deux collider , 
+											//un sur la tete et un autre sur les pieds, j ai mis 2 secondes pour la distruction de l'item habilite
+											//pour que la collision soit complete entre l item , la tete et les pieds.
 
 		}
 
@@ -39,10 +36,9 @@ public class HabiliteTaupe : MonoBehaviour {
 
 	void attendreSecondes() {
 
-		//renderer.enabled = false;
+
 		GameObject.Destroy (this.gameObject);
-		//GetComponent<SpriteRenderer> ().color = new Color (1, 1, 1, 1f);
-		//GetComponent<BoxCollider2D> ().enabled = false;
+
 		Debug.Log("Alpha normal");
 
 	}

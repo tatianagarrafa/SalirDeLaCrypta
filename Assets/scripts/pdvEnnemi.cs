@@ -15,7 +15,7 @@ public class pdvEnnemi : MonoBehaviour {
 	
 	}
 
-	void ToucherMiniBoss (float dmg){
+	void ToucherEnnemi (float dmg){
 		vieRestante -= dmg;
 		if(vieRestante<=0){
 			GameObject.Destroy (this.gameObject);

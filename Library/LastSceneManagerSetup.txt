@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/_scene/scene_Teste.unity
+- path: Assets/_scene/scene_test_Lyes.unity
   isLoaded: 1
   isActive: 1
