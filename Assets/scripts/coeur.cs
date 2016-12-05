@@ -13,7 +13,7 @@ public class coeur : MonoBehaviour {
 		//Debug.Log (coll.gameObject.name);
 		personnage playerScript = coll.gameObject.GetComponent<personnage> ();
 		if (playerScript.nbVie < playerScript.nbVieMax) {
-			if(coll.gameObject.name == "Perso" || coll.gameObject.name == "PersoR"){
+			if(coll.gameObject.transform.parent.name == "Perso"){
 				playerScript.nbVie++;
 				txtnbVies.text = playerScript.nbVie.ToString();
 				GameObject.Destroy (this.gameObject);
