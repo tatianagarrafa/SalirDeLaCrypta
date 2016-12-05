@@ -6,6 +6,7 @@ public class pdvEnnemi : MonoBehaviour
 
 	public float vieRestante;
 
+
 	void Toucher (float dmg)
 	{
 		vieRestante -= dmg;
@@ -13,4 +14,6 @@ public class pdvEnnemi : MonoBehaviour
 			GameObject.Destroy (this.gameObject);
 		}
 	}
+
+
 }

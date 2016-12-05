@@ -7,8 +7,10 @@ public class scriptSalle : MonoBehaviour {
 	public Transform[] items;
 	public Transform[] typeEnnemis;
 	public Sprite spritePorteOuverte;
+	public Transform maCamera;
 	public Sprite spritePorteFerme;
 	public bool PersoDetecte=false;
+	public bool peutGenerEnnemis=false;
 	private bool peutOuvrir=false;
 	private int _nbEnnemis;
 	private int _nbPortes;
@@ -19,10 +21,18 @@ public class scriptSalle : MonoBehaviour {
 	public int _ennemiMax=5;
 	private float positionX;
 	private float positionY;
+	private Transform _tCibleCamera;
+	private Vector3 _v3CibleCamera;
+	private Vector3 _offset;
 
 	// Use this for initialization
 	void Start () {
+		
+		_tCibleCamera = transform.FindChild ("pointInstanitation");
+		_v3CibleCamera = _tCibleCamera.position;
+		_v3CibleCamera.z = maCamera.position.z;
 		_nbitem = 0;
+
 		if (mesEnnemis == null) {
 			mesEnnemis = transform.FindChild ("mesEnnemis");
 		}
@@ -39,14 +49,19 @@ public class scriptSalle : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		_nbEnnemis = mesEnnemis.childCount;
-
-		if (PersoDetecte==true) {
+		if (peutGenerEnnemis==true) {
 			this.GenererEnnemis();
 			this.fermerPortes();
 			Destroy(mesEnnemis.GetChild (0).gameObject);
 			peutOuvrir = true;
-			PersoDetecte = false;
+			peutGenerEnnemis = false;
 		}
+		//a la detection du personnage change la position de la camera à cette salle
+		if (PersoDetecte==true) {
+			maCamera.position = _v3CibleCamera;
+			PersoDetecte = !PersoDetecte;
+		}
+
 
 		//==Gere l ouverture de la porte ou pas selon la presence d ennemi. S il n y pas d ennemi change le sprite et deactive le collider des portes==//
 		if ((peutOuvrir==true) &&(_nbEnnemis <= 0) ) {
@@ -59,9 +74,10 @@ public class scriptSalle : MonoBehaviour {
 		}
 	}
 		
-	void FixedUpdate(){
-
+	void LastUpdate(){
+		
 	}
+		
 
 	// fonction va generer aléetoirement un item de la salles
 	void GenererItems() {
@@ -92,6 +108,7 @@ public class scriptSalle : MonoBehaviour {
 		for (int i = 0; i < _nbPortes; i++) {
 			_mesPortes.GetChild(i).GetComponent<SpriteRenderer> ().sprite = spritePorteFerme;
 			_mesPortes.GetChild(i).GetComponent<BoxCollider2D> ().enabled = true;
+			_mesPortes.GetChild(i).GetChild (0).gameObject.SetActive (false);//deactive le sprite superieur de la porte
 		}
 	}
 
@@ -100,6 +117,7 @@ public class scriptSalle : MonoBehaviour {
 		for (int i = 0; i < _nbPortes; i++) {
 			_mesPortes.GetChild(i).GetComponent<SpriteRenderer> ().sprite = spritePorteOuverte;
 			_mesPortes.GetChild(i).GetComponent<BoxCollider2D> ().enabled = false;
+			_mesPortes.GetChild(i).GetChild (0).gameObject.SetActive (true);//active le sprite superieur de la porte
 		}
 	}
 }

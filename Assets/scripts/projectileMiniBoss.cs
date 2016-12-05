@@ -3,12 +3,13 @@ using System.Collections;
 
 public class projectileMiniBoss : MonoBehaviour {
 
+
 	void OnTriggerEnter2D (Collider2D coll){
 
 		Debug.Log(coll.gameObject.name);
 		GameObject.Destroy (this.gameObject);
 
-		if (coll.gameObject.name == "Perso") {
+		if (coll.gameObject.transform.parent.name == "Perso") {
 			Rigidbody2D rbToucheHeros = coll.gameObject.GetComponent <Rigidbody2D>();
 			Debug.Log("toucher");
 			rbToucheHeros.SendMessageUpwards ("Toucher", 1, SendMessageOptions.RequireReceiver);
@@ -19,5 +20,6 @@ public class projectileMiniBoss : MonoBehaviour {
 			rbToucheHeros.SendMessageUpwards ("Toucher", 1, SendMessageOptions.RequireReceiver);
 
 		}
+
 	}
 }

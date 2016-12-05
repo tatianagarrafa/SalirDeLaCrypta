@@ -10,7 +10,9 @@ public class explosion : MonoBehaviour {
 	void explose(){
 		zoneExplosion.enabled = true;
 		valid = true;
+
 	}
+
 
 
 	void finAnimation(){

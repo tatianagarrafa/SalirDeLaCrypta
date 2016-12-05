@@ -27,7 +27,6 @@ public class LancerObjetMiniBossMomie : MonoBehaviour {
 			GameObject proj2 = Instantiate (projectileMomie, pointLancement.position, transform.localRotation) as GameObject;
 			charge = tempsEntreTir;
 			Rigidbody2D rbProj2 = proj2.GetComponent<Rigidbody2D> ();
-
 			rbProj2.velocity = new Vector2 (0,0);
 
 
@@ -35,6 +34,8 @@ public class LancerObjetMiniBossMomie : MonoBehaviour {
 		}
 
 	}
+
+
 
 
 }

@@ -1,5 +1,6 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class LancerObjet : MonoBehaviour
 {
@@ -8,10 +9,31 @@ public class LancerObjet : MonoBehaviour
 	public float forceTir = 500f;
 	public float tempsEntreTir = 3f;
 	//private float timeStamp = Mathf.Infinity;
+
 	private float chargeH = 0f;
 	private float chargeG = 0f;
 	private float chargeB = 0f;
 	private float chargeD = 0f;
+
+	public GameObject TransfertProjMomie;
+	public GameObject TransfertProjChampignon;
+	public GameObject TransfertProjMasque;
+
+	public float tempsTransf = 5f;
+	public bool PersoDetecte = false;
+
+
+
+	void Start ()
+	{
+
+		TransfertProjMomie.GetComponent<Renderer> ().enabled = false;
+		TransfertProjChampignon.GetComponent<Renderer> ().enabled = false;
+		TransfertProjMasque.GetComponent<Renderer> ().enabled = false;
+	}
+
+
+
 
 	// Update is called once per frame
 	void Update ()
@@ -83,11 +105,71 @@ public class LancerObjet : MonoBehaviour
 
 	void lanceProjectile (Vector2 sens, float force, Quaternion quat)
 	{
+
+
 		GameObject proj = Instantiate (projectile, pointLancement.position, quat) as GameObject;
 		Rigidbody2D rbProj = proj.GetComponent<Rigidbody2D> ();
 		rbProj.AddForce (sens * force);
-
-
 	
+		/*GameObject projTransfertM = Instantiate (TransfertProjMomie, pointLancement.position, quat) as GameObject;
+		Rigidbody2D rbProjTransfertM = projTransfertM.GetComponent<Rigidbody2D> ();
+		rbProjTransfertM.AddForce (sens * force);
+			
+		GameObject projTransfertCh = Instantiate (TransfertProjChampignon, pointLancement.position, quat) as GameObject;
+		Rigidbody2D rbProjTransfertCh = projTransfertCh.GetComponent<Rigidbody2D> ();
+		rbProjTransfertCh.AddForce (sens * 0);
+
+		GameObject projTransfertMas = Instantiate (TransfertProjMasque, pointLancement.position, quat) as GameObject;
+		Rigidbody2D rbProjTransfertMas = projTransfertMas.GetComponent<Rigidbody2D> ();
+		rbProjTransfertMas.AddForce (sens * force);*/
+
+
 	}
+
+	void OnTriggerEnter2D (Collider2D coll)
+	{
+
+		if (coll.gameObject.tag == "Finishmomie") {
+			lanceProjectile (transform.right, (1 * forceTir), Quaternion.AngleAxis (0, Vector3.forward));
+
+			Invoke ("recupererProjectile", tempsTransf);
+			TransfertProjMomie.GetComponent<Renderer> ().enabled = true;
+
+		}
+
+		if (coll.gameObject.tag == "FinishChamp") {
+			lanceProjectile (transform.right, (1 * forceTir), Quaternion.AngleAxis (0, Vector3.forward));
+
+			Invoke ("recupererProjectile", tempsTransf);
+			TransfertProjChampignon.GetComponent<Renderer> ().enabled = true;
+
+
+		}
+
+
+		if (coll.gameObject.tag == "FinishMasque") {
+			lanceProjectile (transform.right, (1 * forceTir), Quaternion.AngleAxis (0, Vector3.forward));
+
+			Invoke ("recupererProjectile", tempsTransf);
+			TransfertProjMasque.GetComponent<Renderer> ().enabled = true;
+
+
+		}
+
+	}
+
+
+	void recupererProjectile ()
+	{
+
+		TransfertProjMomie.GetComponent<Renderer> ().enabled = false;
+		TransfertProjChampignon.GetComponent<Renderer> ().enabled = false;
+		TransfertProjMasque.GetComponent<Renderer> ().enabled = false;
+	}
+
 }
+
+
+
+
+

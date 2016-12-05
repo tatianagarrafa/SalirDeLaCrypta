@@ -20,9 +20,6 @@ public class personnage : MonoBehaviour
 	public float nbVie = 3;
 	public GameObject bombe;
 	public Transform pointDepotBombe;
-	private SpriteRenderer renduDuSprite;
-
-
 
 	// Use this for initialization
 	void Start ()
@@ -30,8 +27,7 @@ public class personnage : MonoBehaviour
 		this.rb = GetComponent<Rigidbody2D> ();
 		this.colli = GetComponent<Collider2D> ();
 		txtnbBombe.text = "0";
-		//this.moi = GetComponent<GameObject> ();
-		this.renduDuSprite = GetComponent<SpriteRenderer> ();
+
 	}
 	
 	// Update is called once per frame
@@ -41,6 +37,7 @@ public class personnage : MonoBehaviour
 			GameObject bombeExplose = Instantiate (bombe, pointDepotBombe.position, transform.localRotation) as GameObject;
 			nbBombe--;
 			txtnbBombe.text = nbBombe.ToString ();
+
 		}
 	}
 
@@ -55,7 +52,7 @@ public class personnage : MonoBehaviour
 	void OnTriggerEnter2D (Collider2D coll)
 	{
 
-		if (coll.gameObject.name == "bombe(Clone)") {
+		if(coll.gameObject.name == "bombe(Clone)" ){
 			nbBombe++;
 			txtnbBombe.text = nbBombe.ToString ();
 		}
@@ -65,9 +62,9 @@ public class personnage : MonoBehaviour
 			txtnbVies.text = nbVie.ToString ();
 		}
 
+
 		if (coll.gameObject.transform.parent.name == "mesEnnemis") {
 			nbVie--;
-			Debug.Log ("JE SUIS TOUCHÉ");
 			if (nbVie <= 0) {
 				//Debug.Log ("mort");
 				txtnbVies.text = nbVie.ToString ();
@@ -75,6 +72,7 @@ public class personnage : MonoBehaviour
 				txtnbVies.text = nbVie.ToString ();
 			}
 		}
+
 	}
 
 	/*void OnTriggerExit2D (Collider2D coll)
