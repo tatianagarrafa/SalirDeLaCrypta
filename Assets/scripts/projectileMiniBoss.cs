@@ -3,7 +3,7 @@ using System.Collections;
 
 public class projectileMiniBoss : MonoBehaviour {
 
-	public GameObject Player;
+	//public GameObject Player;
 
 	void Start () {
 		//GetComponent<BoxCollider2D>;
@@ -19,19 +19,17 @@ public class projectileMiniBoss : MonoBehaviour {
 
 
 
+	void OnTriggerEnter2D(Collider2D Other)
+	{
 
-	void OnCollisionEnter2D (Collision2D coll){
+		// detruire les projectile des miniboss des qu ils touchent leurs salle respectives ou le hero
+		if(Other.gameObject.tag=="zonechampignon" ||Other.gameObject.name=="Perso" || Other.gameObject.tag=="zonetaupe" || Other.gameObject.tag=="sallemomie"
+			|| Other.gameObject.tag=="zonemasque"){
+			
+			GameObject.Destroy (this.gameObject);
 
-		GameObject.Destroy (this.gameObject);
-
-
-
-		Rigidbody2D rbToucheHeros = coll.gameObject.GetComponent <Rigidbody2D>();
-		if (coll.gameObject.name == "Perso") {
-			rbToucheHeros.SendMessageUpwards ("ToucherHeros", 1, SendMessageOptions.RequireReceiver);
+			Debug.Log ("ToucherHeros");
 		}
-
-
-
+			
 	}
 }

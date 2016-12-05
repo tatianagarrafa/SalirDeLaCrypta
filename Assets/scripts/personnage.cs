@@ -16,6 +16,7 @@ public class personnage : MonoBehaviour {
 	public GameObject bombe;
 	public Transform pointDepotBombe;
 
+
 	// Use this for initialization
 	void Start () {
 		this.rb = GetComponent<Rigidbody2D> ();
@@ -29,7 +30,6 @@ public class personnage : MonoBehaviour {
 		{
 			GameObject bombeExplose = Instantiate (bombe,pointDepotBombe.position, transform.localRotation) as GameObject;
 			nbBombe--;
-			Debug.Log ("BOOM");
 			txtnbBombe.text = nbBombe.ToString();
 
 			//GameObject.Destroy (bombeExplose);
@@ -44,28 +44,44 @@ public class personnage : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D (Collider2D coll){
+		// Quand le projectile de la momie ou du masque ou de la taupe ou du champighon touche le heros , il perd des points de vie
+		if( coll.gameObject.tag=="detruire"){
+				//GameObject.Destroy (this.gameObject);
+				//Debug.Log (nbVie);
+				nbVie--;
+				if (nbVie <= 0) {
+					Debug.Log ("mort");
+					txtnbVies.text = nbVie.ToString();
+				} else {
+					txtnbVies.text = nbVie.ToString();
+				}
+		}
+
 		if(coll.gameObject.name == "bombe(Clone)" ){
 			nbBombe++;
 			txtnbBombe.text = nbBombe.ToString();
 		}
 
-		if(coll.gameObject.name == "ennemi" ){
-			//this.colli.enabled = false;
-			//Debug.Log (nbVie);
-			nbVie--;
-			if (nbVie <= 0) {
-				//Debug.Log ("mort");
-				txtnbVies.text = nbVie.ToString();
-			} else {
-				txtnbVies.text = nbVie.ToString();
-			}
-
-		
-
-		}
 
 
 
+
+		if (coll.gameObject.transform.parent) {
+
+			if (coll.gameObject.transform.parent.name == "mesEnnemis") {
+						//GameObject.Destroy (this.gameObject);
+					//Debug.Log (nbVie);
+					nbVie--;
+					if (nbVie <= 0) {
+					Debug.Log ("mort");
+						txtnbVies.text = nbVie.ToString();
+					} else {
+						txtnbVies.text = nbVie.ToString();
+					}
+
+
+					}
+				}
 
 
 	}
@@ -75,10 +91,7 @@ public class personnage : MonoBehaviour {
 
 
 	}
-
-
-
-
+		
 
 
 }

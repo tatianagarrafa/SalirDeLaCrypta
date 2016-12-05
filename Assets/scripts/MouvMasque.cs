@@ -18,13 +18,13 @@ public class MouvMasque : MonoBehaviour {
 				transform.Translate (Vector2.left * vitesse * Time.deltaTime); // Applique la vitesse quand la masque se deplace a droite
 		
 		// limite des deplacements du masque
-			if(transform.position.x >= 4.0f) 
+			if(transform.position.x >= 5.5f) 
 			{
 				deplacement = false;
-
 			}
 
-			if(transform.position.x <= -3.0f) 
+
+			if(transform.position.x <= -5.5f) 
 			{
 				deplacement = true;
 			}

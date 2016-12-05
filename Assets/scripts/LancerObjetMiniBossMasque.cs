@@ -10,6 +10,8 @@ public class LancerObjetMiniBossMasque : MonoBehaviour {
 	public float tempsEntreTir;
 	private float charge;
 
+	public GameObject projectileInstantier;
+	public Transform pointLancement2;
 
 	// Use this for initialization
 	void Start () {
@@ -24,13 +26,18 @@ public class LancerObjetMiniBossMasque : MonoBehaviour {
 
 		if (heros != null && charge<0 ) {
 
-			GameObject proj2 = Instantiate (projectileMasque, pointLancement.position, transform.localRotation) as GameObject;
+			GameObject proj1 = Instantiate (projectileMasque, pointLancement.position, transform.localRotation) as GameObject;
 			charge = tempsEntreTir;
-			Rigidbody2D rbProj2 = proj2.GetComponent<Rigidbody2D> ();
+			Rigidbody2D rbProj1 = proj1.GetComponent<Rigidbody2D> ();
 
-			rbProj2.velocity = new Vector2 (0,0);
+			rbProj1.velocity = new Vector2 (0,0);
 
 
+			//GameObject proj2 = Instantiate (projectileInstantier, pointLancement2.position, transform.localRotation) as GameObject;
+			//charge = tempsEntreTir;
+			//Rigidbody2D rbProj2 = proj2.GetComponent<Rigidbody2D> ();
+
+			//rbProj2.velocity = new Vector2 (3,0);
 
 		}
 

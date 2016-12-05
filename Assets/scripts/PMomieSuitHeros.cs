@@ -27,4 +27,7 @@ public class PMomieSuitHeros : MonoBehaviour {
 		
 		transform.position = Vector2.MoveTowards(transform.position, playerCible.position, DeplVitesse * Time.deltaTime);
 	}
+
+
+
 }
