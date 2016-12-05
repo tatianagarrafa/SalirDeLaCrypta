@@ -19,43 +19,17 @@ public class projectileMiniBoss : MonoBehaviour {
 
 
 
-
-	//void OnCollisionEnter2D (Collision2D coll){
-
-	//	GameObject.Destroy (this.gameObject);
-
-
-
-	//	Rigidbody2D rbToucheHeros = coll.gameObject.GetComponent <Rigidbody2D>();
-	//	if (coll.gameObject.name == "Salle_TestTaupe") {
-	//		rbToucheHeros.SendMessageUpwards ("ToucherHeros", 1, SendMessageOptions.RequireReceiver);
-	//		Debug.Log ("ToucherHeros");
-
-
-	//	}
-
-
-
-//	}
-
-
 	void OnTriggerEnter2D(Collider2D Other)
 	{
-		if(Other.gameObject.tag=="zonetaupe"){
-			//salleScript.PersoDetecte = true;
+
+		// detruire les projectile des miniboss des qu ils touchent leurs salle respectives ou le hero
+		if(Other.gameObject.tag=="zonechampignon" ||Other.gameObject.name=="Perso" || Other.gameObject.tag=="zonetaupe" || Other.gameObject.tag=="sallemomie"
+			|| Other.gameObject.tag=="zonemasque"){
+			
 			GameObject.Destroy (this.gameObject);
-			//Rigidbody2D rbToucheHeros = Other.gameObject.GetComponent <Rigidbody2D>();
-			//rbToucheHeros.SendMessageUpwards ("ToucherHeros", 1, SendMessageOptions.RequireReceiver);
+
 			Debug.Log ("ToucherHeros");
 		}
-
-		if(Other.gameObject.name=="Perso"){
-			//salleScript.PersoDetecte = true;
-			GameObject.Destroy (this.gameObject);
-			Rigidbody2D rbToucheHeros = Other.gameObject.GetComponent <Rigidbody2D>();
-			rbToucheHeros.SendMessageUpwards ("ToucherHeros", 1, SendMessageOptions.RequireReceiver);
-			Debug.Log ("ToucherHeros");
-		}
-
+			
 	}
 }

@@ -57,8 +57,8 @@ public class personnage : MonoBehaviour {
 
 	void OnTriggerEnter2D (Collider2D coll){
 
-
-		if(coll.gameObject.tag=="projSupMasque" || coll.gameObject.tag=="detruire"){
+		// Quand le projectile de la momie ou du masque ou de la taupe ou du champighon touche le heros , il perd des points de vie
+		if( coll.gameObject.tag=="detruire"){
 			{
 				//GameObject.Destroy (this.gameObject);
 				//Debug.Log (nbVie);
@@ -88,7 +88,7 @@ public class personnage : MonoBehaviour {
 
 		if (coll.gameObject.transform.parent) {
 
-				if (coll.gameObject.transform.parent.name == "mesEnnemis" ) {
+			if (coll.gameObject.transform.parent.name == "mesEnnemis") {
 						//GameObject.Destroy (this.gameObject);
 					//Debug.Log (nbVie);
 					nbVie--;

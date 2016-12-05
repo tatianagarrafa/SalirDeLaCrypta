@@ -7,7 +7,7 @@ public class projectile : MonoBehaviour {
 	void Update () {
 	}
 
-	void OnCollisionEnter2D (Collision2D coll){
+	/*void OnCollisionEnter2D (Collision2D coll){
 		GameObject.Destroy (this.gameObject);
 
 		Rigidbody2D rbToucheMiniBoss = coll.gameObject.GetComponent <Rigidbody2D>();
@@ -16,12 +16,26 @@ public class projectile : MonoBehaviour {
 			
 			if (coll.gameObject.transform.parent.name == "mesEnnemis") {
 				
-				rbToucheMiniBoss.SendMessageUpwards ("ToucherMiniBoss", 1, SendMessageOptions.RequireReceiver);
-				Debug.Log ("ToucherMiniBoss");
+				//rbToucheMiniBoss.SendMessageUpwards ("ToucherMiniBoss", 1, SendMessageOptions.RequireReceiver);
+				//Debug.Log ("ToucherMiniBoss");
+
 
 			}
 		}
 			
+	}*/
+
+	void OnCollisionEnter2D (Collision2D coll){
+		GameObject.Destroy (this.gameObject);
+		//Debug.Log (coll.gameObject.transform.parent.name);
+
+		Rigidbody2D rbTouche = coll.gameObject.GetComponent <Rigidbody2D>();
+		if (coll.gameObject.transform.parent) {
+			if (coll.gameObject.transform.parent.name == "mesEnnemis") {
+				rbTouche.SendMessageUpwards ("ToucherEnnemi", 1, SendMessageOptions.RequireReceiver);
+
+			}
+		}
 	}
 
 	//void OnTriggerEnter2D(Collider2D Other) {

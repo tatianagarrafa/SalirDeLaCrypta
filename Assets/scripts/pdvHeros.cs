@@ -3,11 +3,11 @@ using System.Collections;
 
 public class pdvHeros : MonoBehaviour {
 
-	public float vieRestante;
+	//public float vieRestante;
 
 	// Use this for initialization
 	void Start () {
-		vieRestante = 8.0f;
+		//vieRestante = 8.0f;
 
 	}
 
@@ -16,13 +16,13 @@ public class pdvHeros : MonoBehaviour {
 
 	}
 
-	void ToucherHeros (float dmg){
-		vieRestante -= dmg;
-		if(vieRestante<=0){
-			GameObject.Destroy (this.gameObject);
-		}
+	//void ToucherHeros (float dmg){
+	//	vieRestante -= dmg;
+	//	if(vieRestante<=0){
+			//GameObject.Destroy (this.gameObject);
+	//	}
 
-	}
+//	}
 
 
 }
