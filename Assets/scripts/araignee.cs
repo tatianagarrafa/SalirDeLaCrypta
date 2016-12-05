@@ -13,8 +13,6 @@ public class araignee : MonoBehaviour {
 	private float minY = -2f;
 
 	public Transform PointInstantiation;
-	//private float positionX;
-	//private float positionY;
 
 	private float x;
 	private float y;
