@@ -62,14 +62,16 @@ public class personnage : MonoBehaviour
 			txtnbVies.text = nbVie.ToString ();
 		}
 
+		if (coll.gameObject.transform.parent) {
 
-		if (coll.gameObject.transform.parent.name == "mesEnnemis") {
-			nbVie--;
-			if (nbVie <= 0) {
-				//Debug.Log ("mort");
-				txtnbVies.text = nbVie.ToString ();
-			} else {
-				txtnbVies.text = nbVie.ToString ();
+			if (coll.gameObject.transform.parent.name == "mesEnnemis") {
+				nbVie--;
+				if (nbVie <= 0) {
+					//Debug.Log ("mort");
+					txtnbVies.text = nbVie.ToString ();
+				} else {
+					txtnbVies.text = nbVie.ToString ();
+				}
 			}
 		}
 
