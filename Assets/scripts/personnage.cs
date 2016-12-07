@@ -2,6 +2,9 @@
 using System.Collections;
 using UnityEngine.UI;
 
+// http://answers.unity3d.com/questions/42843/referencing-non-static-variables-from-another-scri.html
+// pour aller chercher la variable d'un script d'un autre gameObject
+
 public class personnage : MonoBehaviour
 {
 
@@ -13,10 +16,10 @@ public class personnage : MonoBehaviour
 	public Text txtnbBombe;
 	public Text txtnbVies;
 	private int nbBombe = 0;
+	public float nbVieMax = 3;
 	public float nbVie = 3;
 	public GameObject bombe;
 	public Transform pointDepotBombe;
-
 
 	// Use this for initialization
 	void Start ()
@@ -24,6 +27,7 @@ public class personnage : MonoBehaviour
 		this.rb = GetComponent<Rigidbody2D> ();
 		this.colli = GetComponent<Collider2D> ();
 		txtnbBombe.text = "0";
+
 	}
 	
 	// Update is called once per frame
@@ -33,8 +37,6 @@ public class personnage : MonoBehaviour
 			GameObject bombeExplose = Instantiate (bombe, pointDepotBombe.position, transform.localRotation) as GameObject;
 			nbBombe--;
 			txtnbBombe.text = nbBombe.ToString ();
-
-			//GameObject.Destroy (bombeExplose);
 		}
 	}
 
@@ -48,36 +50,27 @@ public class personnage : MonoBehaviour
 
 	void OnTriggerEnter2D (Collider2D coll)
 	{
-		// Quand le projectile de la momie ou du masque ou de la taupe ou du champighon touche le heros , il perd des points de vie
-		if (coll.gameObject.tag == "detruire") {
-			//GameObject.Destroy (this.gameObject);
-			//Debug.Log (nbVie);
-			nbVie--;
-			if (nbVie <= 0) {
-				Debug.Log ("mort");
-				txtnbVies.text = nbVie.ToString ();
-			} else {
-				txtnbVies.text = nbVie.ToString ();
-			}
-		}
 
-		if (coll.gameObject.name == "bombe(Clone)") {
+
+		if(coll.gameObject.name == "bombe(Clone)" ){
+
 			nbBombe++;
 			txtnbBombe.text = nbBombe.ToString ();
 		}
 
-
-
-
+		if (coll.gameObject.name == "coeur(Clone)" && nbVie < nbVieMax) {
+			nbVie++;
+			txtnbVies.text = nbVie.ToString ();
+		}
 
 		if (coll.gameObject.transform.parent) {
 
 			if (coll.gameObject.transform.parent.name == "mesEnnemis") {
-				//GameObject.Destroy (this.gameObject);
-				//Debug.Log (nbVie);
+
 				nbVie--;
 				if (nbVie <= 0) {
-					Debug.Log ("mort");
+					//Debug.Log ("mort");
+
 					txtnbVies.text = nbVie.ToString ();
 				} else {
 					txtnbVies.text = nbVie.ToString ();
@@ -87,17 +80,15 @@ public class personnage : MonoBehaviour
 			}
 		}
 
-
 	}
 
-	void OnTriggerExit2D (Collider2D coll)
+
+	void Toucher (float dmg)
 	{
-		//Debug.Log("out");
-		this.colli.enabled = true;
-
-
+		nbVie -= dmg;
+		if (nbVie <= 0) {
+			Debug.Log ("JE SUIS MORT");
+			txtnbVies.text = nbVie.ToString ();
+		}
 	}
-		
-
-
 }

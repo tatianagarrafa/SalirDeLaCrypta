@@ -25,7 +25,7 @@ public class LancementSquelette : MonoBehaviour {
 
 		// Si le heros est vivant lance le projectile
 		if (heros != null && charge < 0 ) {
-			GameObject projectileSqueletteClone = Instantiate (projectileSquelette, pointLancement.position, transform.localRotation) as GameObject;
+			GameObject projectileSqueletteClone = Instantiate (projectileSquelette, pointLancement.position, Quaternion.identity) as GameObject;
 			charge = tempsEntreTir;
 			Rigidbody2D rb2dProjectileSqueletteClone = projectileSqueletteClone.GetComponent<Rigidbody2D> ();
 			rb2dProjectileSqueletteClone.AddForce (transform.up * forceTir);
