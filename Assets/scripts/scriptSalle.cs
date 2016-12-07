@@ -91,6 +91,7 @@ public class scriptSalle : MonoBehaviour {
 	// fonction va generer aléatoirement les ennemis de la salles 
 	void GenererEnnemis(){
 		for(int i=0 ; i<_ennemiMax; i++){
+
 			Vector3 nouvellePosition = new Vector3(Random.Range((positionX -6.0f), (positionX + 6.0f)), Random.Range((positionY-4f), (positionY+4.0f)),0f);
 			int nbaleatoire=Random.Range(0, typeEnnemis.Length);
 			Transform nouvelEnnemi = GameObject.Instantiate (typeEnnemis [nbaleatoire], nouvellePosition, Quaternion.identity) as Transform;
