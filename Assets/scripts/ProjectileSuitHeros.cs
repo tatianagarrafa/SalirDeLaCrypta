@@ -24,19 +24,10 @@ public class ProjectileSuitHeros : MonoBehaviour {
 		transform.position = Vector2.MoveTowards(transform.position, playerCible.position, DeplVitesse * Time.deltaTime);
 	}
 
-
-
-
-	void OnTriggerEnter2D(Collider2D Other)
-	{
+	void OnTriggerEnter2D(Collider2D Other){
 		// detruire le projectile de la momie des qu'il touche le heros
-
-			if(Other.gameObject.name=="Perso"){
-			
+		if(Other.gameObject.name=="Perso"){
 			GameObject.Destroy (this.gameObject);
-			//Rigidbody2D rbToucheHeros = Other.gameObject.GetComponent <Rigidbody2D>();
-			//rbToucheHeros.SendMessageUpwards ("ToucherHeros", 1, SendMessageOptions.RequireReceiver);
-			//Debug.Log ("ToucherHeros");
 		}
 
 	}

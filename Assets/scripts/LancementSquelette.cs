@@ -4,7 +4,6 @@ using System.Collections;
 
 public class LancementSquelette : MonoBehaviour {
 	
-
 	public GameObject projectileSquelette;
 	public Transform player;
 	public Transform pointLancement;
@@ -20,7 +19,7 @@ public class LancementSquelette : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		//trouver le perso
+		//trouver le personnage
 		GameObject heros = GameObject.Find ("Perso");
 		charge -= Time.deltaTime;
 
@@ -33,13 +32,5 @@ public class LancementSquelette : MonoBehaviour {
 			//rb2dProjectileSqueletteClone.velocity = new Vector2 (0,0);
 		}
 	}
-
-	/*void lanceProjectile(Vector2 sens,float force, Quaternion quat){
-		GameObject proj = Instantiate (projectile,pointLancement.position, quat) as GameObject;
-		Rigidbody2D rbProj = proj.GetComponent<Rigidbody2D> ();
-		rbProj.AddForce (sens * force);
-
-
-
-	}-*/
+		
 }

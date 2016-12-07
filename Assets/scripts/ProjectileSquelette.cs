@@ -10,7 +10,7 @@ public class ProjectileSquelette : MonoBehaviour {
 		if (coll.gameObject.name == "Perso") {
 			Debug.Log ("J'ai touché le perso");
 			GameObject.Destroy (this.gameObject);
-			//rbToucheHeros.SendMessageUpwards ("ToucherHeros", 1, SendMessageOptions.RequireReceiver);
+			rbToucheHeros.SendMessageUpwards ("ToucherHeros", 1, SendMessageOptions.RequireReceiver);
 		}
 	}
 
