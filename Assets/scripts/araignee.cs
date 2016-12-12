@@ -5,7 +5,6 @@ public class araignee : MonoBehaviour {
 	//answers.unity3d.com/questions/336663/random-movement-staying-in-an-area.html
 
 	public float maxVitesse = 1.2f;
-
 	/*//les limites du random
 	private float maxX = 2f;
 	private float minX = -2f;
