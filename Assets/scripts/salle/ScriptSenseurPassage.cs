@@ -68,7 +68,7 @@ public class ScriptSenseurPassage : MonoBehaviour
 				
 				//rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
 				//rb.velocity.Set(0,0);
-				cible.position = new Vector3 ((positionX), (positionY + distance + 0.5F), 0f);
+				cible.position = new Vector3 ((positionX), (positionY + distance + 0.7F), 0f);
 				//coll.transform.Translate(Vector3.up  * Time.deltaTime*100f);
 			}
 			StartCoroutine (arretMovPerso (coll.gameObject));//appel de la corroutine arretMovPerso

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class scriptSenseur : MonoBehaviour {
+public class ScriptSenseur : MonoBehaviour {
 	private Transform _salle;
 	public ScriptSalle salleScript;
 	private Transform sensTrans;
@@ -25,14 +25,22 @@ public class scriptSenseur : MonoBehaviour {
 	
 	}
 
-	void OnTriggerEnter2D(Collider2D Other)
-	{
+	void OnTriggerEnter2D(Collider2D Other){
+		//Debug.Log (Other.name);
+		/*//==NOTE: UTILISER CE SCRIPT AVEC NOUVEAU PREFAB PERSONNAGE
 		if(Other.gameObject.transform.parent.name =="Perso"){
 			//salleScript.PersoDetecte = true;
 			salleScript.peutGenerEnnemis = true;
 			GameObject.Destroy (this.gameObject);
 			//Debug.Log("Mesure: " + sensTrans.GetComponent <BoxCollider2D>().size.x);
-		}
-			
+		}*/
+		//script a utilise avec premier prefab perso
+
+			if(Other.gameObject.name=="Perso"){
+				//salleScript.PersoDetecte = true;
+				salleScript.peutGenerEnnemis = true;
+				GameObject.Destroy (this.gameObject);
+				//Debug.Log("Mesure: " + sensTrans.GetComponent <BoxCollider2D>().size.x);
+			}
 	}
 }
