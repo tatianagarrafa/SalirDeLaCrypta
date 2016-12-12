@@ -19,8 +19,8 @@ public class scriptPassageSecret : MonoBehaviour {
 	//active la porte secrete à la detection de la collision après l'explosion de la bombe
 	void OnCollisionEnter2D(Collision2D coll){
 		if (coll.gameObject.name == "bombe_anim_0(Clone)") {
-			_passageSecret.GetChild (1).gameObject.SetActive (false);
-			_passageSecret.GetChild (0).gameObject.SetActive (true);
+			_passageSecret.GetChild (2).gameObject.SetActive (false);
+			_passageSecret.GetChild (1).gameObject.SetActive (true);
 			this._passageSecret.GetComponent <BoxCollider2D>().enabled=false;
 			Destroy (_passageSecret.GetComponent<Rigidbody2D>());
 		}

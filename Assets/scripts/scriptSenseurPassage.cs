@@ -4,9 +4,16 @@ using System.Security.Cryptography.X509Certificates;
 
 public class scriptSenseurPassage : MonoBehaviour {
 	public Transform maCamera;
-	private Rigidbody2D rb; 
+	private Transform cible; 
+	private Vector3 newPosition = new Vector3(0f,11.5f,0f);
+	private Transform positionSenseur;
+	private float positionX;
+	private float positionY;
 	// Use this for initialization
 	void Start () {
+		positionSenseur = GetComponent <Transform>();
+		positionX = positionSenseur.position.x;
+		positionY = positionSenseur.position.y;
 	
 	}
 	
@@ -19,47 +26,57 @@ public class scriptSenseurPassage : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D coll){
 
 		if (coll.gameObject.transform.name == "Perso") {
-			
-			rb = coll.gameObject.GetComponent<Rigidbody2D> ();
+			Debug.Log (positionSenseur.position);
+			cible = coll.gameObject.GetComponent<Transform>();
 			float hori = Input.GetAxis ("Horizontal");
 			float verti = Input.GetAxis ("Vertical");
-			Debug.Log (rb.velocity);
+			Vector2 vitesse = cible.GetComponent<Rigidbody2D> ().velocity;
+			float distance = 1.2f;
+			vitesse.Set(0,0);
+			//Debug.Log (coll.gameObject.transform.name);
+			coll.gameObject.SetActive(false);
 
 			if(hori<0){
 				
-				rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
-				rb.velocity.Set(0,0);
-				coll.transform.Translate(Vector3.left  * Time.deltaTime*100f);	
+				//rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+
+				//coll.transform.Translate(Vector3.left  * Time.deltaTime*100f);	
+				cible.position= new Vector3((positionX -distance),(positionY),0f);
 
 			}
 
 			if(hori>0){
 				
-				rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
-				rb.velocity.Set(0,0);
-				coll.transform.Translate(Vector3.right  * Time.deltaTime*100f);
+				//rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+				//rb.velocity.Set(0,0);
+				//coll.transform.Translate(Vector3.right  * Time.deltaTime*100f);
+				cible.position= new Vector3((positionX +distance),(positionY),0f);
 			}
 
 			if(verti<0){
 				
-				rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
-				rb.velocity.Set(0,0);
-				coll.transform.Translate(Vector3.down  * Time.deltaTime*100f);
+				//rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+				//rb.velocity.Set(0,0);
+				cible.position= new Vector3((positionX),(positionY- distance - 0.3F),0f);
 			}
 
 			if(verti>0){
 				
-				rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
-				rb.velocity.Set(0,0);
-				coll.transform.Translate(Vector3.up  * Time.deltaTime*100f);
+				//rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+				//rb.velocity.Set(0,0);
+				cible.position= new Vector3((positionX),(positionY+ distance+ 0.5F),0f);
+				//coll.transform.Translate(Vector3.up  * Time.deltaTime*100f);
 			}
-			StartCoroutine(arretMovPerso());
+			StartCoroutine(arretMovPerso(coll.gameObject));
 		}
 	}
 	//ref:https://docs.unity3d.com/ScriptReference/WaitForSeconds.html
-	IEnumerator arretMovPerso() {
+	IEnumerator arretMovPerso( GameObject objet) {
 		//print(Time.time);
 		yield return new WaitForSeconds(1);
-		rb.constraints =  RigidbodyConstraints2D.FreezeRotation;
+		//rb.constraints =  RigidbodyConstraints2D.FreezeRotation;
+		objet.SetActive(true);
 	}
+		
+
 }

@@ -16,7 +16,6 @@ public class personnage : MonoBehaviour {
 	public GameObject bombe;
 	public Transform pointDepotBombe;
 
-
 	// Use this for initialization
 	void Start () {
 		this.rb = GetComponent<Rigidbody2D> ();
@@ -26,26 +25,17 @@ public class personnage : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
 
 		if(Input.GetKeyDown(KeyCode.E) && nbBombe > 0)	
 		{
-
 			GameObject bombeExplose = Instantiate (bombe,pointDepotBombe.position, transform.localRotation) as GameObject;
-
 			nbBombe--;
 			txtnbBombe.text = nbBombe.ToString();
-
 			//GameObject.Destroy (bombeExplose);
-
 		}
-
-
-	
 	}
 
 	void FixedUpdate(){
-		
 		// https://forum.unity3d.com/threads/basic-2d-player-movement.257930/
 		hori = Input.GetAxis ("Horizontal");
 		verti = Input.GetAxis ("Vertical");
@@ -59,22 +49,16 @@ public class personnage : MonoBehaviour {
 
 		// Quand le projectile de la momie ou du masque ou de la taupe ou du champighon touche le heros , il perd des points de vie
 		if( coll.gameObject.tag=="detruire"){
-			{
-				//GameObject.Destroy (this.gameObject);
-				//Debug.Log (nbVie);
-				nbVie--;
-				if (nbVie <= 0) {
-					Debug.Log ("mort");
-					txtnbVies.text = nbVie.ToString();
-				} else {
-					txtnbVies.text = nbVie.ToString();
-				}
-
-
+			//GameObject.Destroy (this.gameObject);
+			//Debug.Log (nbVie);
+			nbVie--;
+			if (nbVie <= 0) {
+				Debug.Log ("mort");
+				txtnbVies.text = nbVie.ToString();
+			} else {
+				txtnbVies.text = nbVie.ToString();
 			}
 		}
-
-
 
 		if(coll.gameObject.name == "bombe(Clone)" ){
 			nbBombe++;
@@ -82,36 +66,25 @@ public class personnage : MonoBehaviour {
 
 		}
 
-
-
-
-
 		if (coll.gameObject.transform.parent) {
 
 			if (coll.gameObject.transform.parent.name == "mesEnnemis") {
-						//GameObject.Destroy (this.gameObject);
-					//Debug.Log (nbVie);
-					nbVie--;
-					if (nbVie <= 0) {
-					Debug.Log ("mort");
-						txtnbVies.text = nbVie.ToString();
-					} else {
-						txtnbVies.text = nbVie.ToString();
-					}
-
-
-					}
+				//GameObject.Destroy (this.gameObject);
+				//Debug.Log (nbVie);
+				nbVie--;
+				if (nbVie <= 0) {
+				Debug.Log ("mort");
+					txtnbVies.text = nbVie.ToString();
+				} 
+				else {
+					txtnbVies.text = nbVie.ToString();
 				}
-
+			}
+		}
 
 	}
 	void OnTriggerExit2D (Collider2D coll){
 		//Debug.Log("out");
 		this.colli.enabled = true;
-
-
 	}
-		
-
-
 }
