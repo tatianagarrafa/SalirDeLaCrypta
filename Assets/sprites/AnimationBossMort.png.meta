@@ -4,6 +4,7 @@ timeCreated: 1481656293
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
+<<<<<<< HEAD:Assets/sprites/AnimationBossMort.png.meta
     21300000: AnimationBossMort_0
     21300002: AnimationBossMort_1
     21300004: AnimationBossMort_2
@@ -59,6 +60,60 @@ TextureImporter:
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
+=======
+    21300000: AnimMasque_0
+    21300002: AnimMasque_1
+    21300004: AnimMasque_2
+    21300006: AnimMasque_3
+    21300008: AnimMasque_4
+    21300010: AnimMasque_5
+    21300012: AnimMasque_6
+    21300014: AnimMasque_7
+    21300016: AnimMasque_8
+    21300018: AnimMasque_9
+    21300020: AnimMasque_10
+    21300022: AnimMasque_11
+    21300024: AnimMasque_12
+    21300026: AnimMasque_13
+    21300028: AnimMasque_14
+    21300030: AnimMasque_15
+    21300032: AnimMasque_16
+    21300034: AnimMasque_17
+    21300036: AnimMasque_18
+    21300038: AnimMasque_19
+    21300040: AnimMasque_20
+    21300042: AnimMasque_21
+    21300044: AnimMasque_22
+    21300046: AnimMasque_23
+    21300048: AnimMasque_24
+    21300050: AnimMasque_25
+    21300052: AnimMasque_26
+    21300054: AnimMasque_27
+    21300056: AnimMasque_28
+    21300058: AnimMasque_29
+    21300060: AnimMasque_30
+    21300062: AnimMasque_31
+    21300064: AnimMasque_32
+    21300066: AnimMasque_33
+    21300068: AnimMasque_34
+    21300070: AnimMasque_35
+    21300072: AnimMasque_36
+    21300074: AnimMasque_37
+    21300076: AnimMasque_38
+    21300078: AnimMasque_39
+    21300080: AnimMasque_40
+    21300082: AnimMasque_41
+    21300084: AnimMasque_42
+    21300086: AnimMasque_43
+    21300088: AnimMasque_44
+    21300090: AnimMasque_45
+    21300092: AnimMasque_46
+    21300094: AnimMasque_47
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+>>>>>>> upstream/master:Assets/AnimationMiniBoss/AnimMasque.png.meta
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -109,6 +164,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+<<<<<<< HEAD:Assets/sprites/AnimationBossMort.png.meta
   - buildTarget: Standalone
     maxTextureSize: 2048
     textureFormat: -1
@@ -117,6 +173,8 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+=======
+>>>>>>> upstream/master:Assets/AnimationMiniBoss/AnimMasque.png.meta
   spriteSheet:
     serializedVersion: 2
     sprites:

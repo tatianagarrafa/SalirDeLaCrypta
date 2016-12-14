@@ -137,7 +137,11 @@ public class ScriptSalle : MonoBehaviour
 		//routine a suive si ce n'est pas la salle du boss ou du miniboss
 		if ((_monTransform.name == "SalleBoss") || (_monTransform.name == "SalleSecrete")) {
 			Debug.Log ("Salle du " + _monTransform.name);
+<<<<<<< HEAD
 			nouvellePosition = new Vector3 (positionX, positionY, 0f);
+=======
+			nouvellePosition = new Vector3 (positionX, positionX, 0f);
+>>>>>>> upstream/master
 			Transform nouvelEnnemi = GameObject.Instantiate (typeEnnemis [0], nouvellePosition, Quaternion.identity) as Transform;
 			nouvelEnnemi.parent = mesEnnemis;
 		} else {

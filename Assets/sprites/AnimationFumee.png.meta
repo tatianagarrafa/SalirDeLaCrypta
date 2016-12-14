@@ -4,6 +4,7 @@ timeCreated: 1481649913
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
+<<<<<<< HEAD:Assets/sprites/AnimationFumee.png.meta
     21300000: AnimationFumee_0
     21300002: AnimationFumee_1
     21300004: AnimationFumee_2
@@ -66,6 +67,72 @@ TextureImporter:
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
+=======
+    21300000: AnimChampignon_0
+    21300002: AnimChampignon_1
+    21300004: AnimChampignon_2
+    21300006: AnimChampignon_3
+    21300008: AnimChampignon_4
+    21300010: AnimChampignon_5
+    21300012: AnimChampignon_6
+    21300014: AnimChampignon_7
+    21300016: AnimChampignon_8
+    21300018: AnimChampignon_9
+    21300020: AnimChampignon_10
+    21300022: AnimChampignon_11
+    21300024: AnimChampignon_12
+    21300026: AnimChampignon_13
+    21300028: AnimChampignon_14
+    21300030: AnimChampignon_15
+    21300032: AnimChampignon_16
+    21300034: AnimChampignon_17
+    21300036: AnimChampignon_18
+    21300038: AnimChampignon_19
+    21300040: AnimChampignon_20
+    21300042: AnimChampignon_21
+    21300044: AnimChampignon_22
+    21300046: AnimChampignon_23
+    21300048: AnimChampignon_24
+    21300050: AnimChampignon_25
+    21300052: AnimChampignon_26
+    21300054: AnimChampignon_27
+    21300056: AnimChampignon_28
+    21300058: AnimChampignon_29
+    21300060: AnimChampignon_30
+    21300062: AnimChampignon_31
+    21300064: AnimChampignon_32
+    21300066: AnimChampignon_33
+    21300068: AnimChampignon_34
+    21300070: AnimChampignon_35
+    21300072: AnimChampignon_36
+    21300074: AnimChampignon_37
+    21300076: AnimChampignon_38
+    21300078: AnimChampignon_39
+    21300080: AnimChampignon_40
+    21300082: AnimChampignon_41
+    21300084: AnimChampignon_42
+    21300086: AnimChampignon_43
+    21300088: AnimChampignon_44
+    21300090: AnimChampignon_45
+    21300092: AnimChampignon_46
+    21300094: AnimChampignon_47
+    21300096: AnimChampignon_48
+    21300098: AnimChampignon_49
+    21300100: AnimChampignon_50
+    21300102: AnimChampignon_51
+    21300104: AnimChampignon_52
+    21300106: AnimChampignon_53
+    21300108: AnimChampignon_54
+    21300110: AnimChampignon_55
+    21300112: AnimChampignon_56
+    21300114: AnimChampignon_57
+    21300116: AnimChampignon_58
+    21300118: AnimChampignon_59
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+>>>>>>> upstream/master:Assets/AnimationMiniBoss/AnimChampignon.png.meta
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -116,6 +183,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+<<<<<<< HEAD:Assets/sprites/AnimationFumee.png.meta
   - buildTarget: Standalone
     maxTextureSize: 2048
     textureFormat: -1
@@ -124,6 +192,8 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+=======
+>>>>>>> upstream/master:Assets/AnimationMiniBoss/AnimChampignon.png.meta
   spriteSheet:
     serializedVersion: 2
     sprites:
