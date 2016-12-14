@@ -1,18 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class araignee : MonoBehaviour {
+public class Araignee : MonoBehaviour {
 	//answers.unity3d.com/questions/336663/random-movement-staying-in-an-area.html
 
-	public float maxVitesse = 0.015f;
-
-	//les limites du random
+	public float maxVitesse = 1.2f;
+	/*//les limites du random
 	private float maxX = 2f;
 	private float minX = -2f;
 	private float maxY = 2f;
-	private float minY = -2f;
+	private float minY = -2f;*/
 
-	public Transform PointInstantiation;
+	//les limites du random
+	private float maxX;
+	private float minX;
+	private float maxY;
+	private float minY;
+
+	private Transform _salle;
+	private Transform _pointInstantiation;
 	//private float positionX;
 	//private float positionY;
 
@@ -24,12 +30,16 @@ public class araignee : MonoBehaviour {
 	void Start(){
 		//x = Random.Range (minX, maxX);
 		//y = Random.Range (minY, maxY);
-
+		//_salle=transform.root;
+		_salle=transform.parent.parent;
+		Debug.Log (_salle);
+		_pointInstantiation=_salle.Find ("pointInstantiation");
+		//Debug.Log ("Coordonnee: "+_pointInstanitation.position);
 		//les limites du random
-		//maxX = PointInstantiation.position.x + 2f;
-		//minX = PointInstantiation.position.x-2f;
-		//maxY = PointInstantiation.position.y + 2f;
-		//minY = PointInstantiation.position.y-2f;
+		maxX = _pointInstantiation.position.x + 6f;
+		minX = _pointInstantiation.position.x-6f;
+		maxY = _pointInstantiation.position.y + 4f;
+		minY = _pointInstantiation.position.y-4f;
 
 		x = Random.Range (-maxVitesse, maxVitesse);
 		y = Random.Range (-maxVitesse, maxVitesse);
@@ -91,6 +101,11 @@ public class araignee : MonoBehaviour {
 		}
 
 		transform.position = new Vector2 (transform.position.x + x, transform.position.y + y);
+		//transform.Translate () = new Vector2 (transform.position.x + x, transform.position.y + y);
+		//transform.Translate( new Vector3 (transform.position.x, transform.position.y,0)* Time.deltaTime);
+		//StartCoroutine(arretMovPerso(this.transform));
 	}
+
+
 		
 }
