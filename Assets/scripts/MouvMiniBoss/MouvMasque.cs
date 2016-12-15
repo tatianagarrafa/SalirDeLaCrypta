@@ -4,7 +4,7 @@ using System.Collections;
 public class MouvMasque : MonoBehaviour
 {
 	public float vitesse = 2f;
-	private bool deplacement = false;
+	private bool deplacement = true;
 	// Use this for initialization
 	void Start ()
 	{

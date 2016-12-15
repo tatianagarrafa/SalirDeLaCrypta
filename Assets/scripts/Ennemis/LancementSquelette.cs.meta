@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+<<<<<<< HEAD:Assets/scripts/LancementSquelette.cs.meta
+guid: f48df7d47bfc70142810647a8f207e55
+timeCreated: 1480192562
+=======
+guid: 589e7be827007b14994c95bb4e290e02
+timeCreated: 1480951448
+>>>>>>> upstream/master:Assets/scripts/pdvHeros.cs.meta
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

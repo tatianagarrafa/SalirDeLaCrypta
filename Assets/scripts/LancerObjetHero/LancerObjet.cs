@@ -25,8 +25,8 @@ public class LancerObjet : MonoBehaviour
 	void Start ()
 	{
 
-		TransfertProjMomie.GetComponent<Renderer> ().enabled = false;
-		TransfertProjMasque.GetComponent<Renderer> ().enabled = false;
+		//TransfertProjMomie.GetComponent<Renderer> ().enabled = false;
+		//TransfertProjMasque.GetComponent<Renderer> ().enabled = false;
 	}
 
 

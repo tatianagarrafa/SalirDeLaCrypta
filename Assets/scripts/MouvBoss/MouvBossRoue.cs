@@ -17,7 +17,7 @@ public class MouvBossRoue : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		// trouver le perso et suivre son vecteur 
+
 		transform.position = new Vector3 (Roue.position.x, transform.position.y, transform.position.z);
 
 	}

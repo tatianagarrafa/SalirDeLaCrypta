@@ -28,20 +28,7 @@ public class ProjectileSuitHeros : MonoBehaviour
 		if (playerCible == null)
 			return;
 		
-		transform.position = Vector2.MoveTowards (transform.position, playerCible.position, DeplVitesse * Time.deltaTime);
-	}
-
-
-	void OnTriggerEnter2D (Collider2D Other)
-	{
-
-		// J'ai mis un tag pour les deux projectiles des deux heros pour gerer la collision avec le projectile fumee de la momie
-		if (Other.gameObject.tag == "projNahuaYucan") {
-
-			GameObject.Destroy (this.gameObject);
-
-		}
-
+			transform.position = Vector2.MoveTowards (transform.position, playerCible.position, DeplVitesse * Time.deltaTime);
 	}
 
 
